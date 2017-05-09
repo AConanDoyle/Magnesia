@@ -1,0 +1,7 @@
+<resources>
+
+    <!-- items related to Map flips!!  -->
+    <item type="id" name="action_flip" />
+    <item type="id" name="item_satellite_streets" />
+
+</resources>

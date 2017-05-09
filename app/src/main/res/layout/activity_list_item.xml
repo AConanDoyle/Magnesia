@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".ListItemActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTitels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:singleLine="true"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutMap"
+            android:layout_width="match_parent"
+            android:layout_height="300sp"
+            android:layout_below="@+id/textViewTitels">
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                android:layout_marginTop="10dp">
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/transparent_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+        </RelativeLayout>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="81dp"
+            android:layout_height="91dp"
+            android:layout_above="@+id/textViewInOUT"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14dp"
+            android:onClick="callRouting"
+            android:src="@drawable/ic_directions_white_24dp"
+            android:background="@color/colorAccent"/>
+
+        <TextView
+            android:id="@+id/textViewTypeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutMap"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/typ"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewTypeLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewTypeLabel"
+            android:layout_toRightOf="@+id/textViewTypeLabel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewInOUTLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewTypeLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/inoutdoor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewInOUT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewInOUTLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewInOUTLabel"
+            android:layout_toRightOf="@+id/textViewInOUTLabel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewKROUTENLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewInOUTLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/krouten"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewKRouten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewKROUTENLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewKROUTENLabel"
+            android:layout_toRightOf="@+id/textViewKROUTENLabel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewBROUTENLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewKROUTENLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/brouten"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewBRouten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewBROUTENLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewBROUTENLabel"
+            android:layout_toRightOf="@+id/textViewBROUTENLabel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewMaterialLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewBROUTENLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/material"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewMaterial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewMaterialLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewMaterialLabel"
+            android:layout_toRightOf="@+id/textViewMaterialLabel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textViewOpeningLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewMaterialLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/opening"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewopening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewOpeningLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewOpeningLabel"
+            android:layout_toRightOf="@+id/textViewOpeningLabel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewOpeningLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/price"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewPriceLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewPriceLabel"
+            android:layout_toRightOf="@+id/textViewPriceLabel"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewAdressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewPriceLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/adress"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewAdress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewAdressLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textViewAdressLabel"
+            android:layout_toRightOf="@+id/textViewAdressLabel"
+            android:selectAllOnFocus="true"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewWebLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAdress"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/web"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewWebadress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewWebLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/textViewWebLabel"
+            android:clickable="true"
+            android:onClick="callWebAdress"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</ScrollView>

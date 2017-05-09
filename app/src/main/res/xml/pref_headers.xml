@@ -1,0 +1,14 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+    <header
+        android:fragment="climbberlin.de.mapapps.climbup.Preferences.SettingsActivity$MapPreferenceFragment"
+        android:icon="@drawable/ic_map_black_24dp"
+        android:title="@string/pref_header_mapsettings" />
+
+    <header
+        android:fragment="climbberlin.de.mapapps.climbup.Preferences.SettingsActivity$FilterPreferenceFragment"
+        android:icon="@drawable/ic_filter_list_black_24dp"
+        android:title="@string/pref_header_filtersettings" />
+
+</preference-headers>

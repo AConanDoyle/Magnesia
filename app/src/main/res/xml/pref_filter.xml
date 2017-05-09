@@ -1,0 +1,18 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- A 'parent' preference, which enables/disables child preferences (below)
+         when checked/unchecked. -->
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="faButton_auto_close"
+        android:title="@string/pref_filter_auto_close"
+        android:summaryOn="@string/pref_filter_auto_close_summeryon"
+        android:summaryOff="@string/pref_filter_auto_close_summeryoff"/>
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="faButton_labels"
+        android:title="@string/pref_filter_labels"
+        android:summaryOn="@string/pref_labels_summeryon"
+        android:summaryOff="@string/pref_labels_summeryoff"/>
+</PreferenceScreen>

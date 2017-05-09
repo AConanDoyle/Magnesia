@@ -1,0 +1,17 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="map_tilt"
+        android:title="@string/pref_map_tilt"
+        android:summaryOn="@string/pref_map_tilt_summeryon"
+        android:summaryOff="@string/pref_map_tilt_summeryoff"/>
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="map_rotation"
+        android:title="@string/pref_map_rotation"
+        android:summaryOn="@string/pref_map_rotation_summeryon"
+        android:summaryOff="@string/pref_map_rotation_summeryoff"/>
+
+</PreferenceScreen>

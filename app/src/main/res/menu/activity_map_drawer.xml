@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map_black_24dp"
+            android:title="@string/nav_drawer_map" />
+
+        <item android:title="Listen">
+            <menu>
+                <item
+                    android:id="@+id/nav_list_climb_boulder"
+                    android:title="@string/nav_drawer_list_climb_boulder" />
+
+                <item
+                    android:id="@+id/nav_list_climb"
+                    android:title="@string/nav_drawer_list_climb" />
+
+                <item
+                    android:id="@+id/nav_list_boulder"
+                    android:title="@string/nav_drawer_list_boulder" />
+
+<!--                <item
+                    android:id="@+id/nav_list_favorites"
+                    android:icon="@drawable/ic_favorite_black_24px"
+                    android:title="@string/nav_drawer_list_favs_spots" />-->
+
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="Feedback">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Feedback" />
+        </menu>
+    </item>
+
+</menu>
