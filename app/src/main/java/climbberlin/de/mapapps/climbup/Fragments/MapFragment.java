@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -16,6 +17,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -25,6 +27,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -48,19 +51,21 @@ import java.util.List;
 
 import climbberlin.de.mapapps.climbup.Helper.SetMarkers;
 import climbberlin.de.mapapps.climbup.Helper.XMLParser;
+import climbberlin.de.mapapps.climbup.ListItemActivity;
 import climbberlin.de.mapapps.climbup.OverActivity;
 import climbberlin.de.mapapps.climbup.Preferences.SettingsActivity;
 import climbberlin.de.mapapps.climbup.R;
+import me.toptas.fancyshowcase.FancyShowCaseQueue;
+import me.toptas.fancyshowcase.FancyShowCaseView;
 
-import static climbberlin.de.mapapps.climbup.R.id.action_flip;
 import static climbberlin.de.mapapps.climbup.R.id.item_satellite_streets;
+import static climbberlin.de.mapapps.climbup.R.id.map_flip;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxMap.OnInfoWindowClickListener {
 
     // Map stuff
     private static final int MY_PERMISSIONS_REQUEST_GET_LOCATION = 1;
     protected LocationManager locationManager;
-    protected LatLng myposition;
     protected Location myLocation;
     private int hasFineLocationPermission = 0;
     private int hasCoarseLocationPermission = 0;
@@ -95,6 +100,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
 
     // others
     private Handler mHandler = new Handler();
+    private double zoomLevelMap;
+    private boolean fromMapFlip = false;
     View view;
 
     // LocationListener for handling location changes
@@ -107,6 +114,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
             Log.i(TAG, longitude);
             String latitude = "Latitude: " + location.getLatitude();
             Log.i(TAG, latitude);
+            myLocation = location;
         }
 
         @Override
@@ -168,14 +176,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         // Preference settings & ChangeListener
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         map_tilt = prefs.getBoolean("map_tilt", false);
-        map_rotate = prefs.getBoolean("map_rotation", true);
-        filter_autoclose = prefs.getBoolean("faButton_auto_close", true);
-        filter_labels = prefs.getBoolean("faButton_labels", true);
+        map_rotate = prefs.getBoolean("map_rotation", false);
+        filter_autoclose = prefs.getBoolean("faButton_auto_close", false);
+        filter_labels = prefs.getBoolean("faButton_labels", false);
         isFirstRunLocationDialoge = prefs.getBoolean("isFirstRunLocationDialoge", true);
         prefs.registerOnSharedPreferenceChangeListener(prefChangedListener);
-
-        // default location for map (Berlin Alexanderplatz)
-        myposition = new LatLng(52.52001, 13.40495);
 
         // sets map type to climb map
         showclimb = true;
@@ -195,7 +200,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         mapView = (MapView) view.findViewById(R.id.mapviewmapbox);
 
         // FA-Menu & Buttons + the preference settings from user
-        FAM_InOut = (FloatingActionMenu) view.findViewById(R.id.material_design_android_floating_action_menu_inout);
+        FAM_InOut = (FloatingActionMenu) view.findViewById(R.id.floating_action_menu_inout);
         fabIN = (FloatingActionButton) view.findViewById(R.id.floating_action_menu_In);
         fabIN.setLabelVisibility((filter_labels) ? 1 : 0);
         fabOut = (FloatingActionButton) view.findViewById(R.id.floating_action_menu_Out);
@@ -208,13 +213,38 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         mapView.onCreate(savedInstanceState);
         onMapReady(mapboxMap);
 
+        // ShowCase Views for Mapflip- and Filterbutton
+        // shows the Intro just once
+        FancyShowCaseView ShowCaseViewMapFlip = new FancyShowCaseView.Builder(getActivity())
+                //  .focusOn(view.findViewById(R.id.....))
+                .focusCircleAtPosition(585, 110, 70) // Not relative!
+                .title(getString(R.string.map_flip_show_case))
+                .closeOnTouch(true)
+                .backgroundColor(Color.argb(150, 128, 128, 128))
+                .showOnce("map_flip")
+                .build();
+
+        FancyShowCaseView FancyShowCaseViewFilterMenu = new FancyShowCaseView.Builder(getActivity())
+                //      .focusOn(view.findViewById(R.id.ShowCaseFilterbutton))
+                .focusCircleAtPosition(88, 1040, 90) // Not relative!
+                .title(getString(R.string.filter_button_show_case))
+                .closeOnTouch(true)
+                .backgroundColor(Color.argb(150, 128, 128, 128))
+                .showOnce("map_filterMenu")
+                .build();
+
+        new FancyShowCaseQueue()
+                .add(ShowCaseViewMapFlip)
+                .add(FancyShowCaseViewFilterMenu)
+                .show();
+
         return view;
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        MenuItem itemMapTyp = menu.add(Menu.NONE, action_flip, Menu.NONE,
+        MenuItem itemMapTyp = menu.add(Menu.NONE, map_flip, Menu.NONE,
                 showclimb
                         ? R.string.map_boulder
                         : R.string.map_climb);
@@ -247,10 +277,22 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                 Intent intentover = new Intent(getActivity(), OverActivity.class);
                 startActivity(intentover);
                 break;
-            case R.id.action_flip:
-                // switches boolean object
-                showclimb = !showclimb;
+            case R.id.map_flip:
+
                 showSatellite_streets = false;
+                showclimb = !showclimb;
+
+                // Fires Snackbar Notification
+                Snackbar snackbar = Snackbar
+                        .make(view.findViewById(R.id.fragment_map),
+                                !showclimb ? "Boulderspots" : "Kletterspots", Snackbar.LENGTH_LONG);
+                View snackbarView = snackbar.getView();
+                snackbarView.setBackgroundColor(!showclimb ? Color.BLACK : Color.WHITE);
+                TextView textViewsnakebar = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                textViewsnakebar.setTextColor(!showclimb ? Color.WHITE : Color.BLACK);
+                snackbar.show();
+                fromMapFlip = true;
+
                 // reload map
                 onMapReady(mapboxMap);
                 // reload option menu
@@ -263,6 +305,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                 break;
             case item_satellite_streets:
                 showSatellite_streets = !showSatellite_streets;
+                fromMapFlip = true;
                 onMapReady(mapboxMap);
                 mHandler.post(new Runnable() {
                     @Override
@@ -322,40 +365,29 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
 
                 // requesting location for android smaller than marshmallow (API23)
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000,
+                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 500,
                             0, locationListener);
                     if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
                         myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                        myposition = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
                     }
                 }
 
                 if (hasCoarseLocationPermission == 0) {
                     if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
 
-                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000,
+                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 500,
                                 0, locationListener);
                         myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                        if (myLocation != null) {
-                            myposition = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
-                        }
                     }
                 }
 
                 if (hasFineLocationPermission == 0) {
                     if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        if (myLocation != null) {
-                            myposition = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
-                        }
                     } else {
                         showSettingsAlert();
-
-                        locationManager.requestLocationUpdates("gps", 1000, 0, locationListener);
+                        locationManager.requestLocationUpdates("gps", 500, 0, locationListener);
                         myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        if (myLocation != null) {
-                            myposition = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
-                        }
                     }
                 }
 
@@ -391,15 +423,32 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                     getActivity().setTitle("Boulderspots");
                 }
 
-                // move to users location if location is known, otherwise to city center
-                CameraPosition position = new CameraPosition.Builder()
-                        .target(myposition)
-                        .zoom(11)
-                        .build();
-
-                // map animation to position
-                mapboxMap.animateCamera(CameraUpdateFactory
-                        .newCameraPosition(position), 6000);
+                // Holds CameraPosition while MapFlip (change between Boulder and Climbing Map)
+                if (fromMapFlip) {
+                    // default location for map (Berlin Alexanderplatz)
+                    LatLng mapPosition = mapboxMap.getCameraPosition().target;
+                    zoomLevelMap = mapboxMap.getCameraPosition().zoom;
+                    myLocation = new Location("l");
+                    myLocation.setLatitude(mapPosition.getLatitude());
+                    myLocation.setLongitude(mapPosition.getLongitude());
+                    fromMapFlip = false;
+                } else {
+                    // if location is known move to users location, otherwise to city center
+                    if (myLocation == null) {
+                        // default location for map (Berlin Alexanderplatz)
+                        myLocation = new Location("l");
+                        myLocation.setLatitude(52.52001);
+                        myLocation.setLongitude(13.40495);
+                        zoomLevelMap = 10.0;
+                    }
+                    CameraPosition position = new CameraPosition.Builder()
+                            .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
+                            .zoom(zoomLevelMap)
+                            .build();
+                    // map animation to position
+                    mapboxMap.animateCamera(CameraUpdateFactory
+                            .newCameraPosition(position), 6000);
+                }
 
                 // loading data and sets the markers
                 String filename = "spotsberlin5";
@@ -423,8 +472,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         mapboxMap.clear();
                         setMarkers(mapboxMap, gml);
                         // some issues with close method
-                        if(filter_autoclose)
-                        FAM_InOut.close(filter_autoclose);
+                        if (filter_autoclose)
+                            FAM_InOut.close(filter_autoclose);
                     }
                 });
 
@@ -435,8 +484,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         mapboxMap.clear();
                         setMarkers(mapboxMap, gml);
                         // some issues with close method
-                        if(filter_autoclose)
-                        FAM_InOut.close(true);
+                        if (filter_autoclose)
+                            FAM_InOut.close(filter_autoclose);
                     }
                 });
 
@@ -447,8 +496,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         mapboxMap.clear();
                         setMarkers(mapboxMap, gml);
                         // some issues with close method
-                        if(filter_autoclose)
-                        FAM_InOut.close(filter_autoclose);
+                        if (filter_autoclose)
+                            FAM_InOut.close(filter_autoclose);
                     }
                 });
 
@@ -456,13 +505,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                 locationButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (myposition != null) {
+                        locationListener.onLocationChanged(myLocation);
+                        if (myLocation != null) {
                             CameraPosition position = new CameraPosition.Builder()
-                                    .target(myposition)
+                                    .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                                     .zoom(15)
                                     .build();
                             mapboxMap.animateCamera(CameraUpdateFactory
-                                    .newCameraPosition(position), 3000);
+                                    .newCameraPosition(position), 5000);
                         }
                     }
                 });
@@ -498,6 +548,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
 
     // method for infowindowbubble in map when is clicked;
     public boolean onInfoWindowClick(@NonNull final com.mapbox.mapboxsdk.annotations.Marker marker) {
+
+        Intent intentSingleSpot = new Intent(getActivity().getApplicationContext(),
+                ListItemActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("titel", marker.getTitle());
+        bundle.putBoolean("fromMap", true);
+        intentSingleSpot.putExtras(bundle);
+        startActivity(intentSingleSpot);
 
         /*final Dialog dialog = new Dialog(getActivity());
         dialog.setTitle("Favoritenliste");

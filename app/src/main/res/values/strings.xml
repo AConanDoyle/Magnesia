@@ -129,9 +129,14 @@ f&uuml;r jedwede Angaben &uuml;bernommen werden kann.<br/>
     <string name="pref_map_locationrequest_summeryoff">Standortabfrage deaktiviert</string>
     <string name="title_activity_map">Map</string>
 
-    <!-- Strings related to Flip!!  -->
+    <!-- Strings related to Flip  -->
     <string name="map_boulder">Boulderspots</string>
     <string name="map_climb">Kletterspots</string>
-    <string name="title_activity_intro">IntroActivity</string>
+
+    <!-- Strings related to ShowCaseViews  -->
+    <string name="map_flip_show_case">Hier kannst du zwischen der Anicht für Boulder-
+        oder Kletterspots wechseln.</string>
+    <string name="filter_button_show_case">Der Filterbutton ermöglicht das Filtern der Spots nach Indoor und
+        Outdoor.</string>
 
 </resources>

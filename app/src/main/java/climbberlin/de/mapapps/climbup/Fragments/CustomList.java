@@ -71,11 +71,11 @@ public class CustomList extends ArrayAdapter<String> {
             // imageView.setImageResource(imageid[position]);
         } else {
             Picasso.with(context).load(R.mipmap.ic_launcher).into(imageView);
-           /* if (type.get(position).equals("Bouldern")){
+                if (type.get(position).equals("Bouldern")){
                 Picasso.with(context).load(R.drawable.ic_button_black).into(imageView);
             } else {
                 Picasso.with(context).load(R.drawable.ic_button_white).into(imageView);
-            }*/
+            }
         }
 
         // set the values in the text

@@ -14,7 +14,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.constants.Style;
@@ -26,14 +26,24 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.SupportMapFragment;
 import com.mapbox.mapboxsdk.maps.UiSettings;
 
-import climbberlin.de.mapapps.climbup.Helper.MarkerIconBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
-public class ListItemActivity extends AppCompatActivity  {
+import java.io.IOException;
+
+import climbberlin.de.mapapps.climbup.Helper.MarkerIconBuilder;
+import climbberlin.de.mapapps.climbup.Helper.XMLParser;
+
+import static java.lang.Double.parseDouble;
+
+public class ListItemActivity extends AppCompatActivity {
 
     private Intent intentbundleData;
 
     // objects for spot info´s
     private Double Lat, Long;
+    private TextView textViewTitle, textViewtTyp,textViewInOut ;
 
     // objects for map
     MapView mapView;
@@ -44,11 +54,11 @@ public class ListItemActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_item);
 
-        TextView textViewTitle = (TextView) findViewById(R.id.textViewTitels);
-        TextView textViewtTyp = (TextView) findViewById(R.id.textViewType);
+        textViewTitle = (TextView) findViewById(R.id.textViewTitels);
+        textViewtTyp = (TextView) findViewById(R.id.textViewType);
         TextView textViewKrouten = (TextView) findViewById(R.id.textViewKRouten);
         TextView textViewBrouten = (TextView) findViewById(R.id.textViewBRouten);
-        TextView textViewInOut = (TextView) findViewById(R.id.textViewInOUT);
+        textViewInOut = (TextView) findViewById(R.id.textViewInOUT);
         TextView textViewMaterial = (TextView) findViewById(R.id.textViewMaterial);
         TextView textViewOpening = (TextView) findViewById(R.id.textViewopening);
         TextView textViewPrice = (TextView) findViewById(R.id.textViewPrice);
@@ -58,19 +68,57 @@ public class ListItemActivity extends AppCompatActivity  {
         intentbundleData = getIntent();
         if (intentbundleData != null) {
 
-            textViewTitle.setText(intentbundleData.getStringExtra("titel"));
-            textViewtTyp.setText(intentbundleData.getStringExtra("use"));
-            textViewKrouten.setText(intentbundleData.getStringExtra("krouten"));
-            textViewBrouten.setText(intentbundleData.getStringExtra("brouten"));
-            textViewInOut.setText(intentbundleData.getStringExtra("inout"));
-            textViewMaterial.setText(intentbundleData.getStringExtra("material"));
-            textViewOpening.setText(intentbundleData.getStringExtra("opening"));
-            textViewPrice.setText(intentbundleData.getStringExtra("price"));
-            textViewAdress.setText(intentbundleData.getStringExtra("adress"));
-            textViewWeb.setText(intentbundleData.getStringExtra("web"));
+            // If coming from map view
+            if (intentbundleData.getBooleanExtra("fromMap",false)) {
+                XMLParser parser = new XMLParser();
+                String gml = null;
+                try {
+                    gml = parser.loadFile("spotsberlin5", getResources(), true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Document doc = parser.getDomElement(gml);
+                NodeList nl = doc.getElementsByTagName("gml:featureMember");
 
-            Lat = intentbundleData.getDoubleExtra("lat", 52.52001 );
-            Long = intentbundleData.getDoubleExtra("long", 13.40495);
+                // To-Do: change loop typ!
+                for (int i = 0; i < nl.getLength(); i++) {
+                    Element e = (Element) nl.item(i);
+
+                    if (parser.getValue(e, "ogr:NAME")
+                            .equals(intentbundleData.getStringExtra("titel"))) {
+
+                        textViewTitle.setText(parser.getValue(e, "ogr:NAME"));
+                        textViewtTyp.setText(parser.getValue(e, "ogr:NUTZEN"));
+                        textViewKrouten.setText(parser.getValue(e, "ogr:KROUTEN"));
+                        textViewBrouten.setText(parser.getValue(e, "ogr:BROUTEN"));
+                        textViewInOut.setText(parser.getValue(e, "ogr:INOUT"));
+                        textViewMaterial.setText(parser.getValue(e,"ogr:MATERIAL"));
+                        textViewOpening.setText(parser.getValue(e,"ogr:OEFFZEIT"));
+                        textViewPrice.setText(parser.getValue(e,"ogr:PREIS"));
+                        textViewAdress.setText(parser.getValue(e, "ogr:STRASSE") + " "
+                                + parser.getValue(e, "ogr:HAUSNR") + ", " + parser.getValue(e, "ogr:PLZ")
+                                + " " + parser.getValue(e, "ogr:BEZIRK"));
+                        textViewWeb.setText(parser.getValue(e,"ogr:HOMEPAGE"));
+                        Lat = parseDouble(parser.getValue(e, "ogr:LAT"));
+                        Long = parseDouble(parser.getValue(e, "ogr:LONG"));
+                    } // To-DO: add try catch
+                }
+            } else {
+
+                textViewTitle.setText(intentbundleData.getStringExtra("titel"));
+                textViewtTyp.setText(intentbundleData.getStringExtra("use"));
+                textViewKrouten.setText(intentbundleData.getStringExtra("krouten"));
+                textViewBrouten.setText(intentbundleData.getStringExtra("brouten"));
+                textViewInOut.setText(intentbundleData.getStringExtra("inout"));
+                textViewMaterial.setText(intentbundleData.getStringExtra("material"));
+                textViewOpening.setText(intentbundleData.getStringExtra("opening"));
+                textViewPrice.setText(intentbundleData.getStringExtra("price"));
+                textViewAdress.setText(intentbundleData.getStringExtra("adress"));
+                textViewWeb.setText(intentbundleData.getStringExtra("web"));
+
+                Lat = intentbundleData.getDoubleExtra("lat", 52.52001);
+                Long = intentbundleData.getDoubleExtra("long", 13.40495);
+            }
         }
 
         Mapbox.getInstance(this, getString(R.string.accessToken));
@@ -85,9 +133,9 @@ public class ListItemActivity extends AppCompatActivity  {
 
             // Build mapboxMap
             MapboxMapOptions options = new MapboxMapOptions();
-            if(intentbundleData.getStringExtra("use").equals("Klettern")){
+            if (textViewtTyp.getText().toString().equals("Klettern")) {
                 options.styleUrl("mapbox://styles/androidpiti/cioblqu8f00abbvntseh2qytp");
-            }else{
+            } else {
                 options.styleUrl(Style.DARK);
             }
             options.camera(new CameraPosition.Builder()
@@ -129,15 +177,17 @@ public class ListItemActivity extends AppCompatActivity  {
 
                 // sets the pin color
                 boolean climbOrBoulder;
-                climbOrBoulder = intentbundleData.getStringExtra("use").equals("Klettern");
+                climbOrBoulder = textViewtTyp.getText().toString().equals("Klettern");
 
-                MarkerIconBuilder mIconBuilder = new MarkerIconBuilder(getApplicationContext(),climbOrBoulder,
-                        intentbundleData.getStringExtra("use"), intentbundleData.getStringExtra("inout"));
+                MarkerIconBuilder mIconBuilder = new MarkerIconBuilder(getApplicationContext(), climbOrBoulder,
+                        textViewtTyp.getText().toString(), textViewInOut.getText().toString());
 
                 // adds single marker on map
-                mapboxMap.addMarker(new MarkerOptions()
-                        .title(intentbundleData.getStringExtra("titel"))
+                mapboxMap.addMarker(new MarkerViewOptions()
+                        .title(textViewTitle.getText().toString())
                         .icon(mIconBuilder.setIcon())
+                        .anchor(0.5f,1.0f)
+                        .visible(true)
                         .position(new LatLng(Lat, Long)));
             }
         });
@@ -187,10 +237,10 @@ public class ListItemActivity extends AppCompatActivity  {
     }
 
     public void callRouting(View v) {
-            Uri gmmIntentUri = Uri.parse("geo:0,0" + "?q=" + Lat + "," + Long);
-            Intent routIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-            startActivity(routIntent);
-        }
+        Uri gmmIntentUri = Uri.parse("geo:0,0" + "?q=" + Lat + "," + Long);
+        Intent routIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        startActivity(routIntent);
+    }
 
     public void callWebAdress(View v) {
 

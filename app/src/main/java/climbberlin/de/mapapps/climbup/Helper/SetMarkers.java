@@ -2,7 +2,7 @@ package climbberlin.de.mapapps.climbup.Helper;
 
 import android.content.Context;
 
-import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 
@@ -81,10 +81,11 @@ public class SetMarkers {
 
         MarkerIconBuilder mIconBuilder = new MarkerIconBuilder(context, showClimb, use, inout);
 
-        mapboxMap.addMarker(new MarkerOptions()
+        mapboxMap.addMarker(new MarkerViewOptions()
                 .position(new LatLng(LAT, Long))
                 .title(name)
                 .icon(mIconBuilder.setIcon())
+                .anchor(0.5f,1.0f)
                 .snippet("\nKletter oder Boulderspot: " + use +
                         "\nKletterrouten: " + kRouten + "\nBoulderrouten: "
                         + bRouten + "\nIn- oder Outdoor: " + inout));

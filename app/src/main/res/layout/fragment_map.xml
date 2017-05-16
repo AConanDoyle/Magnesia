@@ -3,7 +3,7 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_boulder"
+    android:id="@+id/fragment_map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animationCache="true"
@@ -38,10 +38,11 @@
         android:id="@+id/CoordiLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start">
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="30dp">
 
         <com.github.clans.fab.FloatingActionMenu
-            android:id="@+id/material_design_android_floating_action_menu_inout"
+            android:id="@+id/floating_action_menu_inout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
