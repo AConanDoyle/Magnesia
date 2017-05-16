@@ -185,6 +185,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         // sets map type to climb map
         showclimb = true;
         showSatellite_streets = false;
+        zoomLevelMap = 10.0;
 
         // parameter for own option menu entries
         setHasOptionsMenu(true);
@@ -356,11 +357,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
 
                 if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
                         && hasCoarseLocationPermission == 0) {
-                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30000, 10, locationListener);
+                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 500, 10, locationListener);
                 }
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                         && hasFineLocationPermission == 0) {
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30000, 10, locationListener);
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 10, locationListener);
                 }
 
                 // requesting location for android smaller than marshmallow (API23)
@@ -439,16 +440,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         myLocation = new Location("l");
                         myLocation.setLatitude(52.52001);
                         myLocation.setLongitude(13.40495);
-                        zoomLevelMap = 10.0;
                     }
-                    CameraPosition position = new CameraPosition.Builder()
-                            .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
-                            .zoom(zoomLevelMap)
-                            .build();
-                    // map animation to position
-                    mapboxMap.animateCamera(CameraUpdateFactory
-                            .newCameraPosition(position), 6000);
                 }
+
+                CameraPosition position = new CameraPosition.Builder()
+                        .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
+                        .zoom(zoomLevelMap)
+                        .build();
+                // map animation to position
+                mapboxMap.animateCamera(CameraUpdateFactory
+                        .newCameraPosition(position), 6000);
 
                 // loading data and sets the markers
                 String filename = "spotsberlin5";
