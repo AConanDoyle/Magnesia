@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -43,7 +42,8 @@ public class ListItemActivity extends AppCompatActivity {
 
     // objects for spot info´s
     private Double Lat, Long;
-    private TextView textViewTitle, textViewtTyp,textViewInOut ;
+    private TextView textViewTitle, textViewtTyp, textViewKrouten, textViewBrouten, textViewInOut,
+            textViewMaterial, textViewOpening, textViewPrice, textViewAdress, textViewWeb;
 
     // objects for map
     MapView mapView;
@@ -56,20 +56,20 @@ public class ListItemActivity extends AppCompatActivity {
 
         textViewTitle = (TextView) findViewById(R.id.textViewTitels);
         textViewtTyp = (TextView) findViewById(R.id.textViewType);
-        TextView textViewKrouten = (TextView) findViewById(R.id.textViewKRouten);
-        TextView textViewBrouten = (TextView) findViewById(R.id.textViewBRouten);
+        textViewKrouten = (TextView) findViewById(R.id.textViewKRouten);
+        textViewBrouten = (TextView) findViewById(R.id.textViewBRouten);
         textViewInOut = (TextView) findViewById(R.id.textViewInOUT);
-        TextView textViewMaterial = (TextView) findViewById(R.id.textViewMaterial);
-        TextView textViewOpening = (TextView) findViewById(R.id.textViewopening);
-        TextView textViewPrice = (TextView) findViewById(R.id.textViewPrice);
-        TextView textViewAdress = (TextView) findViewById(R.id.textViewAdress);
-        TextView textViewWeb = (TextView) findViewById(R.id.textViewWebadress);
+        textViewMaterial = (TextView) findViewById(R.id.textViewMaterial);
+        textViewOpening = (TextView) findViewById(R.id.textViewopening);
+        textViewPrice = (TextView) findViewById(R.id.textViewPrice);
+        textViewAdress = (TextView) findViewById(R.id.textViewAdress);
+        textViewWeb = (TextView) findViewById(R.id.textViewWebadress);
 
         intentbundleData = getIntent();
         if (intentbundleData != null) {
 
             // If coming from map view
-            if (intentbundleData.getBooleanExtra("fromMap",false)) {
+            if (intentbundleData.getBooleanExtra("fromMap", false)) {
                 XMLParser parser = new XMLParser();
                 String gml = null;
                 try {
@@ -92,16 +92,16 @@ public class ListItemActivity extends AppCompatActivity {
                         textViewKrouten.setText(parser.getValue(e, "ogr:KROUTEN"));
                         textViewBrouten.setText(parser.getValue(e, "ogr:BROUTEN"));
                         textViewInOut.setText(parser.getValue(e, "ogr:INOUT"));
-                        textViewMaterial.setText(parser.getValue(e,"ogr:MATERIAL"));
-                        textViewOpening.setText(parser.getValue(e,"ogr:OEFFZEIT"));
-                        textViewPrice.setText(parser.getValue(e,"ogr:PREIS"));
+                        textViewMaterial.setText(parser.getValue(e, "ogr:MATERIAL"));
+                        textViewOpening.setText(parser.getValue(e, "ogr:OEFFZEIT"));
+                        textViewPrice.setText(parser.getValue(e, "ogr:PREIS"));
                         textViewAdress.setText(parser.getValue(e, "ogr:STRASSE") + " "
                                 + parser.getValue(e, "ogr:HAUSNR") + ", " + parser.getValue(e, "ogr:PLZ")
                                 + " " + parser.getValue(e, "ogr:BEZIRK"));
-                        textViewWeb.setText(parser.getValue(e,"ogr:HOMEPAGE"));
+                        textViewWeb.setText(parser.getValue(e, "ogr:HOMEPAGE"));
                         Lat = parseDouble(parser.getValue(e, "ogr:LAT"));
                         Long = parseDouble(parser.getValue(e, "ogr:LONG"));
-                    } // To-DO: add try catch
+                    }   // To-DO: add try catch
                 }
             } else {
 
@@ -186,7 +186,7 @@ public class ListItemActivity extends AppCompatActivity {
                 mapboxMap.addMarker(new MarkerViewOptions()
                         .title(textViewTitle.getText().toString())
                         .icon(mIconBuilder.setIcon())
-                        .anchor(0.5f,1.0f)
+                        .anchor(0.5f, 1.0f)
                         .visible(true)
                         .position(new LatLng(Lat, Long)));
             }
@@ -225,16 +225,42 @@ public class ListItemActivity extends AppCompatActivity {
         });
 
     }
+/*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_list_item_addspot, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
-                return true;
+            case R.id.addToFavorites:
+                // Adds a the spot to favorite's list
+                try {
+                    DBHandler db = new DBHandler(getBaseContext());
+                    db.addSpot(new Spots(1,
+                            textViewTitle.getText().toString(),
+                            Lat, Long, textViewInOut.getText().toString(),
+                            textViewtTyp.getText().toString(),
+                            textViewKrouten.getText().toString(),
+                            textViewBrouten.getText().toString(),
+                            textViewMaterial.getText().toString(),
+                            textViewOpening.getText().toString(),
+                            textViewPrice.getText().toString(),
+                            textViewAdress.getText().toString(),
+                            textViewWeb.getText().toString()));
+                    Log.d("database", "add Spot: " + textViewTitle.getText().toString());
+                } catch (Exception e) {
+                    System.out.println("Error " + e.getMessage());
+                }
+                break;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     public void callRouting(View v) {
         Uri gmmIntentUri = Uri.parse("geo:0,0" + "?q=" + Lat + "," + Long);

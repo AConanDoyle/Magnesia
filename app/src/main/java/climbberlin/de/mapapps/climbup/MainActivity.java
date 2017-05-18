@@ -2,6 +2,7 @@ package climbberlin.de.mapapps.climbup;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -22,7 +24,7 @@ import climbberlin.de.mapapps.climbup.Fragments.MapFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         MapFragment.OnFragmentInteractionListener, ListFragment.OnFragmentInteractionListener,
-        FragmentManager.OnBackStackChangedListener{
+        FragmentManager.OnBackStackChangedListener {
 
     // objects for fragments
     Fragment toFragment = null;
@@ -30,11 +32,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Bundle bundle = new Bundle();
     // object for map typ
     private boolean mShowClimb;  // front = climb map, back = boulder map
+    private boolean appExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Debugging Tool
+        //   Stetho.initializeWithDefaults(this);
 
         // sets toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -75,7 +80,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (getFragmentManager().getBackStackEntryCount() < 1) {
+                exitDialog();
+                if (appExit) {
+                    super.onBackPressed();
+                }
+            }
         }
     }
 
@@ -95,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
 
-        // shows Listview boulder- and climbspots
+            // shows Listview boulder- and climbspots
         } else if (id == R.id.nav_list_climb_boulder) {
 
             toFragment = new ListFragment();
@@ -104,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
 
-        // shows listview climbspots
+            // shows listview climbspots
         } else if (id == R.id.nav_list_climb) {
 
             toFragment = new ListFragment();
@@ -113,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
 
-        // shows listview boulderspots
+            // shows listview boulderspots
         } else if (id == R.id.nav_list_boulder) {
 
             toFragment = new ListFragment();
@@ -132,7 +142,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
 
         //   calls Feedback dialog
-        } */else if (id == R.id.nav_send) {
+        } */
+        else if (id == R.id.nav_send) {
 
             // Feedback feature
             new EasyFeedback.Builder(this)
@@ -150,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onBackStackChanged() {
         mShowClimb = (getFragmentManager().getBackStackEntryCount() > 0);
-
         // When the back stack changes, invalidate the options menu (action bar).
         invalidateOptionsMenu();
     }
@@ -168,6 +178,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(browserIntent);
         }
+    }
+
+    // Dialog for App Exit
+    public void exitDialog() {
+
+        AlertDialog.Builder ExitDialog = new AlertDialog.Builder(this);
+        ExitDialog.setTitle(getString(R.string.dialog_exit_title));
+        ExitDialog.setMessage(getText(R.string.dialog_exit_question));
+        ExitDialog.setCancelable(true);
+        // On pressing Yes-button
+        ExitDialog.setPositiveButton(getText(R.string.button_exit_yes), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                appExit = true;
+                onBackPressed();
+            }
+        });
+        // On pressing No-button
+        ExitDialog.setNegativeButton(getText(R.string.button_exit_no), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        ExitDialog.show();
     }
 
     @Override

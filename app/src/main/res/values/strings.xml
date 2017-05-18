@@ -2,7 +2,6 @@
 
     <!-- App title  -->
     <string name="app_name">Magnesia</string>
-    <!--<string name="app_claim">boulder and climbing spots in berlin</string>-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -90,10 +89,15 @@ f&uuml;r jedwede Angaben &uuml;bernommen werden kann.<br/>
     <!-- Access token for MapBox -->
     <string name="accessToken" translatable="false">pk.eyJ1IjoiYW5kcm9pZHBpdGkiLCJhIjoiY2lvd3VwamhmMDA4MHZ0a2p0OGJnYnRhNSJ9.fITbznDvS6FhARaYxrW_Pw</string>
 
-    <!-- Strings related to Map - InfoDialog -->
-    <string name="dialog_title">Zu Favoriten hinzufügen?</string>
-    <string name="button_Yes">Ja</string>
-    <string name="button_NO">Nein</string>
+    <!-- Strings related Dialog -->
+    <string name="dialog_exit_title">App schließen</string>
+    <string name="dialog_exit_question">Willst du Magnesia verlassen?</string>
+    <string name="button_exit_yes">Ja</string>
+    <string name="button_exit_no">Nein</string>
+    <string name="dialog_location_settings">Einstellungen</string>
+    <string name="locationCancel">Abbrechen</string>
+    <string name="dialog_location_title">Standortbestimmung</string>
+    <string name="dialog_location_question">Die Standortbestimmung ist nicht aktiviert. Wollen Sie diese aktivieren?</string>
 
     <!-- Strings related to Listview -->
     <string name="typ">Art: </string>

@@ -20,6 +20,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -104,6 +105,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
     private boolean fromMapFlip = false;
     View view;
 
+    FancyShowCaseView ShowCaseViewMapFlip;
+
     // LocationListener for handling location changes
     private LocationListener locationListener = new LocationListener() {
         public String TAG;
@@ -133,7 +136,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         }
     };
 
-    // handling preference changes
+    // PreferenceChangeListener; updates the preferences
     SharedPreferences.OnSharedPreferenceChangeListener prefChangedListener = new
             SharedPreferences.OnSharedPreferenceChangeListener() {
 
@@ -179,7 +182,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         map_rotate = prefs.getBoolean("map_rotation", false);
         filter_autoclose = prefs.getBoolean("faButton_auto_close", false);
         filter_labels = prefs.getBoolean("faButton_labels", false);
-        isFirstRunLocationDialoge = prefs.getBoolean("isFirstRunLocationDialoge", true);
+        isFirstRunLocationDialoge = prefs.getBoolean("isFirstRunLocationDialoge", false);
         prefs.registerOnSharedPreferenceChangeListener(prefChangedListener);
 
         // sets map type to climb map
@@ -216,9 +219,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
 
         // ShowCase Views for Mapflip- and Filterbutton
         // shows the Intro just once
+        DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
         FancyShowCaseView ShowCaseViewMapFlip = new FancyShowCaseView.Builder(getActivity())
-                //  .focusOn(view.findViewById(R.id.....))
-                .focusCircleAtPosition(585, 110, 70) // Not relative!
+              //  .focusOn(view.findViewById(R.id.map_flip))
+                .focusCircleAtPosition((int)(displayMetrics.widthPixels * 0.85),
+                        (int)(displayMetrics.heightPixels * 0.10), 80)
                 .title(getString(R.string.map_flip_show_case))
                 .closeOnTouch(true)
                 .backgroundColor(Color.argb(150, 128, 128, 128))
@@ -226,8 +231,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                 .build();
 
         FancyShowCaseView FancyShowCaseViewFilterMenu = new FancyShowCaseView.Builder(getActivity())
-                //      .focusOn(view.findViewById(R.id.ShowCaseFilterbutton))
-                .focusCircleAtPosition(88, 1040, 90) // Not relative!
+                .focusCircleAtPosition((int)(displayMetrics.widthPixels * 0.10),
+                        (int)(displayMetrics.heightPixels * 0.90), 120) // Not relative!
                 .title(getString(R.string.filter_button_show_case))
                 .closeOnTouch(true)
                 .backgroundColor(Color.argb(150, 128, 128, 128))
@@ -386,7 +391,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                     if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     } else {
-                        showSettingsAlert();
+                        showSettingsLocationDialog();
                         locationManager.requestLocationUpdates("gps", 500, 0, locationListener);
                         myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     }
@@ -558,65 +563,21 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         intentSingleSpot.putExtras(bundle);
         startActivity(intentSingleSpot);
 
-        /*final Dialog dialog = new Dialog(getActivity());
-        dialog.setTitle("Favoritenliste");
-        dialog.setContentView(R.layout.activity_info_bubble);
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.setCancelable(true);
-
-        Button btnBtmLeft = (Button) dialog.findViewById(R.id.buttonNo);
-        Button btnBtmRight = (Button) dialog.findViewById(R.id.buttonYes);
-
-        btnBtmLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        btnBtmRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Adds a the spot to favorite's list
-                try {
-                    DBHandler db = new DBHandler(getActivity());
-                    db.addSpot(new Spots(1, marker.getTitle(), marker.getPosition().getLatitude(), marker.getPosition().getLongitude(),
-                            "dd", "dd", "dd", "dd", "dd", "dd", "dd", "dd", "dd"));
-                    Log.d("database", "add Spot: " + marker.getTitle());
-                } catch (Exception e) {
-                    System.out.println("Error " + e.getMessage());
-                }
-
-                dialog.dismiss();
-            }
-        });
-
-        TextView  text_question = (TextView) dialog.findViewById(R.id.text_question);
-        text_question.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        text_question.setText("Spot: " + marker.getTitle() + "\n" + " zu Favoritenliste hinzufügen?");
-
-        DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
-        int dialogWidth = (int)(displayMetrics.widthPixels * 0.85);
-        int dialogHeight = (int)(displayMetrics.heightPixels * 0.45);
-        dialog.getWindow().setLayout(dialogWidth, dialogHeight);
-        dialog.show();
-*/
         return false;
     }
 
     // Asks user for location service
-    public void showSettingsAlert() {
-
+    public void showSettingsLocationDialog() {
         // Fires a Dialog for Location service
         if (isFirstRunLocationDialoge) {
             alertDialog = new AlertDialog.Builder(getActivity());
 
-            // setting dialog title 6 message
-            alertDialog.setTitle("Standortbestimmung");
-            alertDialog.setMessage("Die Standortbestimmung ist nicht aktiviert. Wollen Sie diese aktivieren?");
+            // setting dialog title message
+            alertDialog.setTitle(getText(R.string.dialog_location_title));
+            alertDialog.setMessage(getText(R.string.dialog_location_question));
 
             // On pressing Settings button
-            alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+            alertDialog.setPositiveButton(getText(R.string.dialog_location_settings), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
 
                     Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
@@ -625,7 +586,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
             });
 
             // on pressing cancel button
-            alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            alertDialog.setNegativeButton(getText(R.string.locationCancel), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.cancel();
                 }
@@ -680,12 +641,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("lifecycle", "onDestroy invoked");
     }
 
     @Override

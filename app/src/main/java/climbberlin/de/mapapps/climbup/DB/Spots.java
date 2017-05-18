@@ -1,17 +1,16 @@
 package climbberlin.de.mapapps.climbup.DB;
 
 /**
- * Created by Hagen on 13.03.2017.
+ * Created by AConanDoyle on 13.03.2017.
  */
 
 public class Spots {
 
-    // Price einfügen !!!!!!!!!!!
     private int id;
     private String name;
     private Double lat;
     private Double Long;
-    private String use;
+    private String InOut;
     private String typ;
     private String krouten;
     private String brouten;
@@ -25,13 +24,13 @@ public class Spots {
     }
 
     // constructor
-    public Spots (int id, String name, Double lat, Double Long, String use, String typ, String krouten, String brouten,
+    public Spots (int id, String name, Double lat, Double Long, String InOut, String typ, String krouten, String brouten,
                   String material, String opening, String price, String address, String web) {
         this.id = id;
         this.name = name;
         this.lat = lat;
         this.Long = Long;
-        this.use = use;
+        this.InOut = InOut;
         this.typ = typ;
         this.krouten = krouten;
         this.brouten = brouten;
@@ -59,8 +58,8 @@ public class Spots {
         this.name = name;
     }
 
-    public void setUse(String use) {
-        this.use = use;
+    public void setInOut(String inOut) {
+        this.InOut = inOut;
     }
 
     public void setTyp(String typ) {
@@ -108,8 +107,8 @@ public class Spots {
         return Long;
     }
 
-    public String getUse() {
-        return use;
+    public String getInOut() {
+        return InOut;
     }
 
     public String getTyp() {
