@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FragmentManager fragmentManager;
     Bundle bundle = new Bundle();
     // object for map typ
-    private boolean mShowClimb;  // front = climb map, back = boulder map
+    // front = climb map, back = boulder map
+    private boolean mShowClimb;
     private boolean appExit;
 
     @Override
