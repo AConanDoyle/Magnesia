@@ -64,6 +64,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+        values.put(KEY_ID, spots.getId());
         values.put(KEY_NAME, spots.getName());
         values.put(KEY_LAT, spots.getLat());
         values.put(KEY_LONG, spots.getLong());
@@ -99,6 +100,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7),
                 cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11),
                 cursor.getString(12));
+        cursor.close();
+
         return spots;
     }
 
@@ -136,6 +139,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 spotsList.add(spots);
             } while (cursor.moveToNext());
         }
+        cursor.close();
 
         // return contact list
         return spotsList;
@@ -149,6 +153,19 @@ public class DBHandler extends SQLiteOpenHelper {
         cursor.close();
 
         return cursor.getCount();
+    }
+
+    // Checking if spot is existing
+    public boolean checkIfSpotExists(Integer ID) {
+        String existsQuery = "Select * from " + TABLE_SPOTS + " where " + "id" + " = " + ID;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(existsQuery, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
     }
 
     // Updating a spot

@@ -4,4 +4,7 @@
     <item type="id" name="map_flip" />
     <item type="id" name="item_satellite_streets" />
 
+    <!-- items related to favorites_spots!!  -->
+    <item type="id" name="addToFavorites"/>
+
 </resources>

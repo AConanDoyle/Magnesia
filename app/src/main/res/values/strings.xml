@@ -110,6 +110,8 @@ f&uuml;r jedwede Angaben &uuml;bernommen werden kann.<br/>
     <string name="adress">Adresse: </string>
     <string name="web">Web: </string>
     <string name="routing_button">Bring mich dort hin!</string>
+    <string name="favorites_no_contant">Nischt gelikt!</string>
+    <string name="favorites_no_contant_small">Likes kannst du in der Einzelansicht vergeben.</string>
 
     <!-- Strings related to Settings -->
     <string name="title_activity_settings">Einstellungen</string>
@@ -133,9 +135,15 @@ f&uuml;r jedwede Angaben &uuml;bernommen werden kann.<br/>
     <string name="pref_map_locationrequest_summeryoff">Standortabfrage deaktiviert</string>
     <string name="title_activity_map">Map</string>
 
-    <!-- Strings related to Flip  -->
+    <!-- Strings related to Map-Flip  -->
     <string name="map_boulder">Boulderspots</string>
     <string name="map_climb">Kletterspots</string>
+
+    <!-- Strings related to favorite spots button  -->
+    <string name="spot_added">Zu Favoriten hinzugefügt</string>
+    <string name="spot_deleted">Aus Favoriten entfernt</string>
+    <string name="favorite_yes">Bereits ein Lieblingsspot</string>
+    <string name="favorite_no">Kein Lieblingsspot</string>
 
     <!-- Strings related to ShowCaseViews  -->
     <string name="map_flip_show_case">Hier kannst du zwischen der Anicht für Boulder-

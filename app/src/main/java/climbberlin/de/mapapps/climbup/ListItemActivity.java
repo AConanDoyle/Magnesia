@@ -3,9 +3,13 @@ package climbberlin.de.mapapps.climbup;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,28 +35,38 @@ import org.w3c.dom.NodeList;
 
 import java.io.IOException;
 
+import climbberlin.de.mapapps.climbup.DB.DBHandler;
+import climbberlin.de.mapapps.climbup.DB.Spots;
 import climbberlin.de.mapapps.climbup.Helper.MarkerIconBuilder;
 import climbberlin.de.mapapps.climbup.Helper.XMLParser;
+import climbberlin.de.mapapps.climbup.Preferences.SettingsActivity;
 
+import static climbberlin.de.mapapps.climbup.R.id.addToFavorites;
+import static climbberlin.de.mapapps.climbup.R.id.container;
 import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 
 public class ListItemActivity extends AppCompatActivity {
-
-    private Intent intentbundleData;
 
     // objects for spot info´s
     private Double Lat, Long;
     private TextView textViewTitle, textViewtTyp, textViewKrouten, textViewBrouten, textViewInOut,
             textViewMaterial, textViewOpening, textViewPrice, textViewAdress, textViewWeb;
+    private Integer SpotId;
 
     // objects for map
     MapView mapView;
     MapboxMap mapboxMap;
 
+    // database object
+    DBHandler db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_item);
+
+        db = new DBHandler(getBaseContext());
 
         textViewTitle = (TextView) findViewById(R.id.textViewTitels);
         textViewtTyp = (TextView) findViewById(R.id.textViewType);
@@ -65,7 +79,7 @@ public class ListItemActivity extends AppCompatActivity {
         textViewAdress = (TextView) findViewById(R.id.textViewAdress);
         textViewWeb = (TextView) findViewById(R.id.textViewWebadress);
 
-        intentbundleData = getIntent();
+        Intent intentbundleData = getIntent();
         if (intentbundleData != null) {
 
             // If coming from map view
@@ -73,7 +87,7 @@ public class ListItemActivity extends AppCompatActivity {
                 XMLParser parser = new XMLParser();
                 String gml = null;
                 try {
-                    gml = parser.loadFile("spotsberlin5", getResources(), true);
+                    gml = parser.loadFile("spotsberlin6", getResources(), true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -101,7 +115,8 @@ public class ListItemActivity extends AppCompatActivity {
                         textViewWeb.setText(parser.getValue(e, "ogr:HOMEPAGE"));
                         Lat = parseDouble(parser.getValue(e, "ogr:LAT"));
                         Long = parseDouble(parser.getValue(e, "ogr:LONG"));
-                    }   // To-DO: add try catch
+                        SpotId = parseInt(parser.getValue(e, "ogr:ID"));
+                    }
                 }
             } else {
 
@@ -118,6 +133,7 @@ public class ListItemActivity extends AppCompatActivity {
 
                 Lat = intentbundleData.getDoubleExtra("lat", 52.52001);
                 Long = intentbundleData.getDoubleExtra("long", 13.40495);
+                SpotId = intentbundleData.getIntExtra("spotid", 999);
             }
         }
 
@@ -147,7 +163,7 @@ public class ListItemActivity extends AppCompatActivity {
             mapFragment = SupportMapFragment.newInstance(options);
 
             // Add map fragment
-            transaction.add(R.id.container, mapFragment, "com.mapbox.map");
+            transaction.add(container, mapFragment, "com.mapbox.map");
             transaction.commit();
         } else {
             mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentByTag("com.mapbox.map");
@@ -225,42 +241,95 @@ public class ListItemActivity extends AppCompatActivity {
         });
 
     }
-/*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_list_item_addspot, menu);
+
+        MenuItem itemFavoriteButton = menu.add(Menu.NONE, addToFavorites, Menu.NONE,
+                db.checkIfSpotExists(SpotId)
+                        ? R.string.favorite_yes
+                        : R.string.favorite_no);
+
+        itemFavoriteButton.setIcon(db.checkIfSpotExists(SpotId)
+                ? R.drawable.black_heart
+                : R.drawable.ic_favorite_border);
+
+        itemFavoriteButton.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        this.getMenuInflater().inflate(R.menu.menu_appbar, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-            case R.id.addToFavorites:
+            case R.id.item_settings:
+                Intent intentsettings = new Intent(this, SettingsActivity.class);
+                startActivity(intentsettings);
+                break;
+            case R.id.item_over:
+                Intent intentover = new Intent(this, OverActivity.class);
+                startActivity(intentover);
+                break;
+            case addToFavorites:
                 // Adds a the spot to favorite's list
-                try {
-                    DBHandler db = new DBHandler(getBaseContext());
-                    db.addSpot(new Spots(1,
-                            textViewTitle.getText().toString(),
-                            Lat, Long, textViewInOut.getText().toString(),
-                            textViewtTyp.getText().toString(),
-                            textViewKrouten.getText().toString(),
-                            textViewBrouten.getText().toString(),
-                            textViewMaterial.getText().toString(),
-                            textViewOpening.getText().toString(),
-                            textViewPrice.getText().toString(),
-                            textViewAdress.getText().toString(),
-                            textViewWeb.getText().toString()));
-                    Log.d("database", "add Spot: " + textViewTitle.getText().toString());
-                } catch (Exception e) {
-                    System.out.println("Error " + e.getMessage());
+                if (!db.checkIfSpotExists(SpotId)) {
+                    try {
+                        db.addSpot(new Spots(
+                                SpotId,
+                                textViewTitle.getText().toString(),
+                                Lat,
+                                Long,
+                                textViewInOut.getText().toString(),
+                                textViewtTyp.getText().toString(),
+                                textViewKrouten.getText().toString(),
+                                textViewBrouten.getText().toString(),
+                                textViewMaterial.getText().toString(),
+                                textViewOpening.getText().toString(),
+                                textViewPrice.getText().toString(),
+                                textViewAdress.getText().toString(),
+                                textViewWeb.getText().toString()));
+                        Log.d("database", "add Spot: " + textViewTitle.getText().toString());
+                        showSnackeBar(true);
+                    } catch (Exception e) {
+                        Log.e("Error ", e.getMessage());
+                    }
+                } else {
+                    // delete spot
+                    try {
+                        db.deleteSpot(new Spots(
+                                SpotId,
+                                textViewTitle.getText().toString(),
+                                Lat,
+                                Long,
+                                textViewInOut.getText().toString(),
+                                textViewtTyp.getText().toString(),
+                                textViewKrouten.getText().toString(),
+                                textViewBrouten.getText().toString(),
+                                textViewMaterial.getText().toString(),
+                                textViewOpening.getText().toString(),
+                                textViewPrice.getText().toString(),
+                                textViewAdress.getText().toString(),
+                                textViewWeb.getText().toString()));
+                        Log.d("database", "update Spot: " + textViewTitle.getText().toString());
+                        showSnackeBar(false);
+                    } catch (Exception e) {
+                        Log.e("Error ", e.getMessage());
+                    }
                 }
+                // reload option menu
+                Handler mHandler = new Handler();
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        invalidateOptionsMenu();
+                    }
+                });
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
     public void callRouting(View v) {
         Uri gmmIntentUri = Uri.parse("geo:0,0" + "?q=" + Lat + "," + Long);
@@ -280,6 +349,14 @@ public class ListItemActivity extends AppCompatActivity {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(browserIntent);
         }
+    }
+
+    public void showSnackeBar(Boolean spotAdded) {
+        Snackbar snackbar = Snackbar
+                .make(findViewById(R.id.activity_list_item),
+                        spotAdded ? getText(R.string.spot_added) : getText(R.string.spot_deleted),
+                        Snackbar.LENGTH_LONG);
+                snackbar.show();
     }
 
     // lifecycle methods

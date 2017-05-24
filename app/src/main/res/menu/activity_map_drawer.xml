@@ -21,10 +21,9 @@
                     android:id="@+id/nav_list_boulder"
                     android:title="@string/nav_drawer_list_boulder" />
 
-<!--                <item
+                <item
                     android:id="@+id/nav_list_favorites"
-                    android:icon="@drawable/ic_favorite_black_24px"
-                    android:title="@string/nav_drawer_list_favs_spots" />-->
+                    android:title="@string/nav_drawer_list_favs_spots" />
 
             </menu>
         </item>

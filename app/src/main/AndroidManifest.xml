@@ -43,7 +43,7 @@
         <activity
             android:name=".ListItemActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".ListItemActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity

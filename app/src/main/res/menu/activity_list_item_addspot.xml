@@ -8,6 +8,10 @@
         android:title="@string/action_climb_map"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/item_settings"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_settings" />
+    <item
         android:id="@+id/item_over"
         android:orderInCategory="100"
         android:title="@string/title_activity_over" />

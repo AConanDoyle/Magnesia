@@ -12,9 +12,9 @@
   </gml:boundedBy>
                                                                                              
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.0">
+    <ogr:spotsberlin6 fid="spotsberlin6.0">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.497001300693,52.6248779361483</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>15</ogr:ID>
+      <ogr:ID>12</ogr:ID>
       <ogr:LAT>52.624879999999997</ogr:LAT>
       <ogr:LONG>13.496990000000000</ogr:LONG>
       <ogr:NAME>Mont SJC Buch</ogr:NAME>
@@ -40,12 +40,12 @@
       <ogr:BROUTEN>2</ogr:BROUTEN>
       <ogr:HOMEPAGE>sjc-buch.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>anja</ogr:BEARBEITER>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.1">
+    <ogr:spotsberlin6 fid="spotsberlin6.1">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.3294200897217,52.5150717639895</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>51</ogr:ID>
+      <ogr:ID>20</ogr:ID>
       <ogr:LAT>52.515071763989503</ogr:LAT>
       <ogr:LONG>13.329420089721699</ogr:LONG>
       <ogr:NAME>Mercedes-Welt</ogr:NAME>
@@ -74,12 +74,12 @@
       <ogr:HOMEPAGE>dav-berlin.de/index.php/mercedes-welt</ogr:HOMEPAGE>
       <ogr:BEARBEITER>anja</ogr:BEARBEITER>
       <ogr:IMAID>mercedeswelt_salzufer_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.2">
+    <ogr:spotsberlin6 fid="spotsberlin6.2">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4412744654555,52.5280839037675</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>48</ogr:ID>
+      <ogr:ID>19</ogr:ID>
       <ogr:LAT>52.528089999999999</ogr:LAT>
       <ogr:LONG>13.441280000000001</ogr:LONG>
       <ogr:NAME>Volkspark Bouldern</ogr:NAME>
@@ -102,12 +102,12 @@
       <ogr:INFO>110m Traverse, Umrundung, ohne aufgeschraubte Griffe, ohne den oberen Rand, entg</ogr:INFO>
       <ogr:BEARBEITER>anja</ogr:BEARBEITER>
       <ogr:IMAID>b_volkspark_fhain_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.3">
+    <ogr:spotsberlin6 fid="spotsberlin6.3">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4671247005463,52.519919325337</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>69</ogr:ID>
+      <ogr:ID>26</ogr:ID>
       <ogr:LAT>52.519919325337000</ogr:LAT>
       <ogr:LONG>13.467124700546300</ogr:LONG>
       <ogr:NAME>Boulderblock Samariterstraße</ogr:NAME>
@@ -132,12 +132,12 @@
       <ogr:INFO>Nagelneuer und daher sehr rauher Spritzbeton. Fingerkuppen Tapen oder Zähne zusa</ogr:INFO>
       <ogr:BEARBEITER>anja</ogr:BEARBEITER>
       <ogr:IMAID>b_samariterstr_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.4">
+    <ogr:spotsberlin6 fid="spotsberlin6.4">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4544861316681,52.507125176706</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>108</ogr:ID>
+      <ogr:ID>27</ogr:ID>
       <ogr:LAT>52.507125176705998</ogr:LAT>
       <ogr:LONG>13.454486131668100</ogr:LONG>
       <ogr:NAME>Der Kegel</ogr:NAME>
@@ -164,12 +164,12 @@
       <ogr:HOMEPAGE>derkegel.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>anja</ogr:BEARBEITER>
       <ogr:IMAID>kegel_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.5">
+    <ogr:spotsberlin6 fid="spotsberlin6.5">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.381897,52.548706</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>55</ogr:ID>
+      <ogr:ID>25</ogr:ID>
       <ogr:LAT>52.548706000000003</ogr:LAT>
       <ogr:LONG>13.381897000000000</ogr:LONG>
       <ogr:NAME>Magic Mountain</ogr:NAME>
@@ -195,12 +195,12 @@
       <ogr:HOMEPAGE>magicmountain.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>anja</ogr:BEARBEITER>
       <ogr:IMAID>magic_mountain_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.6">
+    <ogr:spotsberlin6 fid="spotsberlin6.6">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.5816013813019,52.5639439714466</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>7</ogr:ID>
+      <ogr:ID>5</ogr:ID>
       <ogr:LAT>52.563929999999999</ogr:LAT>
       <ogr:LONG>13.581610000000000</ogr:LONG>
       <ogr:NAME>Wuhletalwächter</ogr:NAME>
@@ -225,12 +225,12 @@
       <ogr:INFO>Ringwand um den sechsseitigen Turm zum Bouldern. Einstiege am Turm oft schwierig</ogr:INFO>
       <ogr:HOMEPAGE>alpinclub-berlin.de/index.php?option=com_content&amp;view=article&amp;id=123&amp;Itemid=645</ogr:HOMEPAGE>
       <ogr:BEARBEITER>philipp</ogr:BEARBEITER>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.7">
+    <ogr:spotsberlin6 fid="spotsberlin6.7">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4908890724182,52.567103668816</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>5</ogr:ID>
+      <ogr:ID>3</ogr:ID>
       <ogr:LAT>52.567103668816003</ogr:LAT>
       <ogr:LONG>13.490889072418200</ogr:LONG>
       <ogr:NAME>Monte Balkon</ogr:NAME>
@@ -255,12 +255,12 @@
       <ogr:HOMEPAGE>alpinclub-berlin.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>philipp</ogr:BEARBEITER>
       <ogr:IMAID>k_monte_balkon_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.8">
+    <ogr:spotsberlin6 fid="spotsberlin6.8">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4358166474535,52.5234862242606</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>145</ogr:ID>
+      <ogr:ID>29</ogr:ID>
       <ogr:LAT>52.523470000000003</ogr:LAT>
       <ogr:LONG>13.435800000000000</ogr:LONG>
       <ogr:NAME>Jugendclub KoCa</ogr:NAME>
@@ -287,10 +287,10 @@
       <ogr:HOMEPAGE>koca-berlin.de/index.php</ogr:HOMEPAGE>
       <ogr:BEARBEITER>philipp</ogr:BEARBEITER>
       <ogr:IMAID>koca_jugendglub_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.9">
+    <ogr:spotsberlin6 fid="spotsberlin6.9">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.5392653942108,52.4603633753531</gml:coordinates></gml:Point></ogr:geometryProperty>
       <ogr:ID>1</ogr:ID>
       <ogr:LAT>52.460363375353097</ogr:LAT>
@@ -318,12 +318,12 @@
       <ogr:HOMEPAGE>arena.gsj-berlin.de/klettern/</ogr:HOMEPAGE>
       <ogr:BEARBEITER>philipp</ogr:BEARBEITER>
       <ogr:IMAID>sjc_arena_k_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.10">
+    <ogr:spotsberlin6 fid="spotsberlin6.10">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.5509847531903,52.5460524422421</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>16</ogr:ID>
+      <ogr:ID>13</ogr:ID>
       <ogr:LAT>52.545949999999998</ogr:LAT>
       <ogr:LONG>13.551000000000000</ogr:LONG>
       <ogr:NAME>SJC Mahrzahn</ogr:NAME>
@@ -350,12 +350,12 @@
       <ogr:HOMEPAGE>sjcmarzahn.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>philipp</ogr:BEARBEITER>
       <ogr:IMAID>sjc_mahrzahn_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.11">
+    <ogr:spotsberlin6 fid="spotsberlin6.11">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4006,52.5274</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>166</ogr:ID>
+      <ogr:ID>34</ogr:ID>
       <ogr:LAT>52.527400000000000</ogr:LAT>
       <ogr:LONG>13.400600000000001</ogr:LONG>
       <ogr:NAME>Das Böse &amp; Das Gute</ogr:NAME>
@@ -379,12 +379,12 @@
       <ogr:INFO>Die Normalwege (=Abstiege) sind nicht schwer zu bewältigen. Über die bewußte Red</ogr:INFO>
       <ogr:BEARBEITER>philipp</ogr:BEARBEITER>
       <ogr:IMAID>b_boese_gute_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.12">
+    <ogr:spotsberlin6 fid="spotsberlin6.12">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.5480764508247,52.462228068842</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>3</ogr:ID>
+      <ogr:ID>2</ogr:ID>
       <ogr:LAT>52.462228068842002</ogr:LAT>
       <ogr:LONG>13.548076450824700</ogr:LONG>
       <ogr:NAME>Kletterturm FEZ</ogr:NAME>
@@ -407,12 +407,12 @@
       <ogr:HOMEPAGE>altai-adventure.de/tagesfahrten/tagesfahrt-kletterturm-fez-berlin/</ogr:HOMEPAGE>
       <ogr:BEARBEITER>philipp</ogr:BEARBEITER>
       <ogr:IMAID>altai_wand_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.13">
+    <ogr:spotsberlin6 fid="spotsberlin6.13">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.31885,52.52459</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>149</ogr:ID>
+      <ogr:ID>31</ogr:ID>
       <ogr:LAT>52.524590000000003</ogr:LAT>
       <ogr:LONG>13.318849999999999</ogr:LONG>
       <ogr:NAME>An der Spree</ogr:NAME>
@@ -434,12 +434,12 @@
       <ogr:BROUTEN>wenige</ogr:BROUTEN>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>an_der_spree_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.14">
+    <ogr:spotsberlin6 fid="spotsberlin6.14">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4563502669334,52.4223397553059</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>26</ogr:ID>
+      <ogr:ID>16</ogr:ID>
       <ogr:LAT>52.422339755305899</ogr:LAT>
       <ogr:LONG>13.456350266933400</ogr:LONG>
       <ogr:NAME>MädchenSportZentrum Wilde Hütte</ogr:NAME>
@@ -465,12 +465,12 @@
       <ogr:INFO>Mädchen- und Frauenklettergruppen, Mo.-Fr. bis 14.00 Uhr und Do. bis 21.00 Uhr a</ogr:INFO>
       <ogr:HOMEPAGE>www.wilde-huette.de/klettern/</ogr:HOMEPAGE>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.15">
+    <ogr:spotsberlin6 fid="spotsberlin6.15">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4514820575714,52.479369415248</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>43</ogr:ID>
+      <ogr:ID>18</ogr:ID>
       <ogr:LAT>52.479369415248001</ogr:LAT>
       <ogr:LONG>13.451482057571400</ogr:LONG>
       <ogr:NAME>Bouldergarten</ogr:NAME>
@@ -497,12 +497,12 @@
       <ogr:HOMEPAGE>bouldergarten.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>t_hall_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.16">
+    <ogr:spotsberlin6 fid="spotsberlin6.16">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.5245749354362,52.4614877573923</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>137</ogr:ID>
+      <ogr:ID>24</ogr:ID>
       <ogr:LAT>52.461487757392298</ogr:LAT>
       <ogr:LONG>13.524574935436201</ogr:LONG>
       <ogr:NAME>Bouldern in Oberschöneweide</ogr:NAME>
@@ -524,12 +524,12 @@
       <ogr:BROUTEN>wenige</ogr:BROUTEN>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>b_oberschoeneweide_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.17">
+    <ogr:spotsberlin6 fid="spotsberlin6.17">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.399563,52.548824</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>71</ogr:ID>
+      <ogr:ID>23</ogr:ID>
       <ogr:LAT>52.548824000000003</ogr:LAT>
       <ogr:LONG>13.399563000000001</ogr:LONG>
       <ogr:NAME>Schwedter Nordwand</ogr:NAME>
@@ -556,12 +556,12 @@
       <ogr:HOMEPAGE>alpinclub-berlin.de/index.php?option=com_content&amp;view=article&amp;id=124&amp;Itemid=653</ogr:HOMEPAGE>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>schwedter_nw_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.18">
+    <ogr:spotsberlin6 fid="spotsberlin6.18">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.41421,52.53137</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>8</ogr:ID>
+      <ogr:ID>6</ogr:ID>
       <ogr:LAT>52.531370000000003</ogr:LAT>
       <ogr:LONG>13.414210000000001</ogr:LONG>
       <ogr:NAME>SJC Prenzlauer Berg</ogr:NAME>
@@ -588,12 +588,12 @@
       <ogr:HOMEPAGE>sjc-prenzlauerberg.de/kletterkurse/</ogr:HOMEPAGE>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>sjc_prenzlberg_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.19">
+    <ogr:spotsberlin6 fid="spotsberlin6.19">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4148377180099,52.5437674112464</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>61</ogr:ID>
+      <ogr:ID>22</ogr:ID>
       <ogr:LAT>52.543767411246399</ogr:LAT>
       <ogr:LONG>13.414837718009901</ogr:LONG>
       <ogr:NAME>Boulderfelsen Pappelallee</ogr:NAME>
@@ -616,12 +616,12 @@
       <ogr:INFO>Ein kleiner Boulderspot auf einem häßlichen Spielplatz.</ogr:INFO>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>b_pappelallee_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.20">
+    <ogr:spotsberlin6 fid="spotsberlin6.20">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4038996696472,52.5523956080095</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>141</ogr:ID>
+      <ogr:ID>28</ogr:ID>
       <ogr:LAT>52.552395608009498</ogr:LAT>
       <ogr:LONG>13.403899669647201</ogr:LONG>
       <ogr:NAME>Bouldern Malmöer Straße</ogr:NAME>
@@ -645,12 +645,12 @@
       <ogr:INFO>4 oder 5 einzelne Blocks zum bouldern, die zusammen vielleicht 12 qm einnehmen.</ogr:INFO>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>b_malmoeer_str_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.21">
+    <ogr:spotsberlin6 fid="spotsberlin6.21">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.488132011611,52.491367610598</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>194</ogr:ID>
+      <ogr:ID>36</ogr:ID>
       <ogr:LAT>52.491390000000003</ogr:LAT>
       <ogr:LONG>13.488130000000000</ogr:LONG>
       <ogr:NAME>Ostbloc Boulderhalle</ogr:NAME>
@@ -676,12 +676,12 @@
       <ogr:HOMEPAGE>ostbloc.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>b_ostbloc_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.22">
+    <ogr:spotsberlin6 fid="spotsberlin6.22">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.3646750450134,52.495659840043</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>32</ogr:ID>
+      <ogr:ID>17</ogr:ID>
       <ogr:LAT>52.495659840042997</ogr:LAT>
       <ogr:LONG>13.364675045013399</ogr:LONG>
       <ogr:NAME>Kletterturm Kirchbachspitze</ogr:NAME>
@@ -709,12 +709,12 @@
       <ogr:HOMEPAGE>dav-berlin.de/index.php/kirchbachspitze</ogr:HOMEPAGE>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:IMAID>kletterturm_schoeneberg_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.23">
+    <ogr:spotsberlin6 fid="spotsberlin6.23">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.38514,52.4414</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>157</ogr:ID>
+      <ogr:ID>32</ogr:ID>
       <ogr:LAT>52.441400000000002</ogr:LAT>
       <ogr:LONG>13.385140000000000</ogr:LONG>
       <ogr:NAME>Ayers Rock</ogr:NAME>
@@ -740,12 +740,12 @@
       <ogr:INFO>Große Betonblöcke mit eingemeißelten Rissen. Sehr ungepflegt (Grafitti, Moß und</ogr:INFO>
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Kinderfreu>ja</ogr:Kinderfreu>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.24">
+    <ogr:spotsberlin6 fid="spotsberlin6.24">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.1748819351196,52.5464653321628</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>6</ogr:ID>
+      <ogr:ID>4</ogr:ID>
       <ogr:LAT>52.546465332162803</ogr:LAT>
       <ogr:LONG>13.174881935119600</ogr:LONG>
       <ogr:NAME>Traven-Gemeinschaftsschule in Spandau</ogr:NAME>
@@ -769,12 +769,12 @@
       <ogr:HOMEPAGE>alpinclub-berlin.de/index.php?option=com_content&amp;view=article&amp;id=128&amp;Itemid=654</ogr:HOMEPAGE>
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Bearbeitun>Halle zurzeit geschlossen, homepage wird neu gestaltet und bietet keine infos</ogr:Bearbeitun>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.25">
+    <ogr:spotsberlin6 fid="spotsberlin6.25">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.203355,52.5167</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>14</ogr:ID>
+      <ogr:ID>11</ogr:ID>
       <ogr:LAT>52.516700000000000</ogr:LAT>
       <ogr:LONG>13.203355000000000</ogr:LONG>
       <ogr:NAME>SportJugendClub Wildwuchs</ogr:NAME>
@@ -801,12 +801,12 @@
       <ogr:HOMEPAGE>sjcwildwuchs.de</ogr:HOMEPAGE>
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Quelle>http://www.sjcwildwuchs.de/SJCWildwuchs/Der_SJC_Wildwuchs.html</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.26">
+    <ogr:spotsberlin6 fid="spotsberlin6.26">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.15415,52.52529</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>158</ogr:ID>
+      <ogr:ID>33</ogr:ID>
       <ogr:LAT>52.525289999999998</ogr:LAT>
       <ogr:LONG>13.154150000000000</ogr:LONG>
       <ogr:NAME>Boulderfelsen Cosmarweg</ogr:NAME>
@@ -830,12 +830,12 @@
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Bearbeitun>brauchen wir Kontakt, wenn Stadt Berlin Eigner ist?</ogr:Bearbeitun>
       <ogr:Quelle>http://www.berlin.de/imperia/md/content/baspandau/verwaltung/spielplatz_cosmarwe</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.27">
+    <ogr:spotsberlin6 fid="spotsberlin6.27">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.404757976532,52.3918003273712</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>196</ogr:ID>
+      <ogr:ID>37</ogr:ID>
       <ogr:LAT>52.391800327371200</ogr:LAT>
       <ogr:LONG>13.404757976532000</ogr:LONG>
       <ogr:NAME>Boulderfelsen</ogr:NAME>
@@ -862,12 +862,12 @@
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Bearbeitun>im Luftbild nicht zu erkennen, Begehung notwendig</ogr:Bearbeitun>
       <ogr:Quelle>http://www.kick-projekt.de/html/standorte.html</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.28">
+    <ogr:spotsberlin6 fid="spotsberlin6.28">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.3846789598465,52.5474798641112</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>11</ogr:ID>
+      <ogr:ID>9</ogr:ID>
       <ogr:LAT>52.547479864111203</ogr:LAT>
       <ogr:LONG>13.384678959846500</ogr:LONG>
       <ogr:NAME>Bunker im Humboldthain</ogr:NAME>
@@ -896,12 +896,12 @@
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Quelle>http://www.dav-berlin.de/?bse=kletteranlagen_humboldthain&amp;bmo=0&amp;bex=0&amp;btl=DAV_HO</ogr:Quelle>
       <ogr:IMAID>bunker_humboldthain_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.29">
+    <ogr:spotsberlin6 fid="spotsberlin6.29">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.2451128959656,52.4996539438026</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>10</ogr:ID>
+      <ogr:ID>8</ogr:ID>
       <ogr:LAT>52.499653943802599</ogr:LAT>
       <ogr:LONG>13.245112895965599</ogr:LONG>
       <ogr:NAME>Kletterturm Teufelsberg</ogr:NAME>
@@ -929,12 +929,12 @@
       <ogr:HOMEPAGE>dav-berlin.de/index.php/teufelsberg</ogr:HOMEPAGE>
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Quelle>http://www.dav-berlin.de/?bse=kletteranlagen_teufelsberg&amp;bmo=0&amp;bex=0&amp;btl=DAV_HOM</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.30">
+    <ogr:spotsberlin6 fid="spotsberlin6.30">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.3181,52.486873</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>171</ogr:ID>
+      <ogr:ID>35</ogr:ID>
       <ogr:LAT>52.486873000000003</ogr:LAT>
       <ogr:LONG>13.318099999999999</ogr:LONG>
       <ogr:NAME>BoulderworX</ogr:NAME>
@@ -964,12 +964,12 @@
       <ogr:Bearbeitun>Routen sind wesentlich mehr, hab nur keine Anzahl gefunden</ogr:Bearbeitun>
       <ogr:Quelle>boulderworx.de/</ogr:Quelle>
       <ogr:IMAID>boulderworx_h</ogr:IMAID>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.31">
+    <ogr:spotsberlin6 fid="spotsberlin6.31">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.26793,52.45398</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>54</ogr:ID>
+      <ogr:ID>21</ogr:ID>
       <ogr:LAT>52.454090000000001</ogr:LAT>
       <ogr:LONG>13.267730000000000</ogr:LONG>
       <ogr:NAME>DAV-Halle Hüttenweg</ogr:NAME>
@@ -996,12 +996,12 @@
       <ogr:HOMEPAGE>alpinclub-berlin.de/index.php?option=com_content&amp;view=article&amp;id=130&amp;Itemid=1005</ogr:HOMEPAGE>
       <ogr:BEARBEITER>karsten</ogr:BEARBEITER>
       <ogr:Quelle>http://www.dav-berlin.de/?bse=kletteranlagen_huettenweg&amp;bmo=0&amp;bex=0&amp;btl=DAV_HOME</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.32">
+    <ogr:spotsberlin6 fid="spotsberlin6.32">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4285395574027,52.495250389757</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>1001</ogr:ID>
+      <ogr:ID>38</ogr:ID>
       <ogr:LAT>52.495310400000001</ogr:LAT>
       <ogr:LONG>13.428618999999999</ogr:LONG>
       <ogr:NAME>BoulderKlub Kreuzberg</ogr:NAME>
@@ -1012,7 +1012,7 @@
       <ogr:EIGNER>Ramirez, Robert und Stoepel, Erik GbR
 </ogr:EIGNER>
       <ogr:EMAIL>info@boulderklub.de</ogr:EMAIL>
-      <ogr:OEFFZEIT>Sa. Mo.10:00 - 22:00; 
+      <ogr:OEFFZEIT>Sa. Mo.10:00 - 22:00;
 Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:PREIS>9.00</ogr:PREIS>
       <ogr:INOUT>indoor</ogr:INOUT>
@@ -1028,12 +1028,12 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:Kinderfreu>Ja</ogr:Kinderfreu>
       <ogr:Bearbeitun>hagen</ogr:Bearbeitun>
       <ogr:Quelle>boulderklub.de/</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.33">
+    <ogr:spotsberlin6 fid="spotsberlin6.33">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.362528857221,52.5285685163112</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>1002</ogr:ID>
+      <ogr:ID>39</ogr:ID>
       <ogr:LAT>52.528579999999998</ogr:LAT>
       <ogr:LONG>13.362550000000001</ogr:LONG>
       <ogr:NAME>DAV Kletterzentrum Berlin</ogr:NAME>
@@ -1056,12 +1056,12 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:Kinderfreu>Ja</ogr:Kinderfreu>
       <ogr:Quelle>kletterzentrum.dav-berlin.de/</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.34">
+    <ogr:spotsberlin6 fid="spotsberlin6.34">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.379564033947,52.4400567247844</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>1003</ogr:ID>
+      <ogr:ID>40</ogr:ID>
       <ogr:LAT>52.440120100000001</ogr:LAT>
       <ogr:LONG>13.377292199999999</ogr:LONG>
       <ogr:NAME>Südbloc Boulderhalle</ogr:NAME>
@@ -1088,12 +1088,12 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:Kinderfreu>Ja</ogr:Kinderfreu>
       <ogr:Quelle>http://suedbloc.de</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.35">
+    <ogr:spotsberlin6 fid="spotsberlin6.35">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4100565461597,52.5637436680533</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>1004</ogr:ID>
+      <ogr:ID>41</ogr:ID>
       <ogr:LAT>52.563600000000001</ogr:LAT>
       <ogr:LONG>13.409829999999999</ogr:LONG>
       <ogr:NAME>Boulderhalle Berta Block</ogr:NAME>
@@ -1117,12 +1117,12 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:Kinderfreu>Ja</ogr:Kinderfreu>
       <ogr:Bearbeitun>bertablock.de</ogr:Bearbeitun>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.36">
+    <ogr:spotsberlin6 fid="spotsberlin6.36">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.1344185661821,52.4820275437188</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>146</ogr:ID>
+      <ogr:ID>30</ogr:ID>
       <ogr:LAT>52.482884763704597</ogr:LAT>
       <ogr:LONG>13.134112358093301</ogr:LONG>
       <ogr:NAME>Mount Gatow</ogr:NAME>
@@ -1145,12 +1145,12 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:KROUTEN>12</ogr:KROUTEN>
       <ogr:BROUTEN>diverse</ogr:BROUTEN>
       <ogr:INFO>Zugang nur nach Absprache mit Ansprechpartnern</ogr:INFO>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.37">
+    <ogr:spotsberlin6 fid="spotsberlin6.37">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.4500761969207,52.5020524789275</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>9</ogr:ID>
+      <ogr:ID>7</ogr:ID>
       <ogr:LAT>52.501655999999997</ogr:LAT>
       <ogr:LONG>13.451373000000000</ogr:LONG>
       <ogr:NAME>Stonehenge Stralauer Allee</ogr:NAME>
@@ -1171,12 +1171,12 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:Kinderfreu>Nein</ogr:Kinderfreu>
       <ogr:Quelle>http://www.klettern-in-berlin.de/klettern.php?nr=109&amp;aktion=showone</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.38">
+    <ogr:spotsberlin6 fid="spotsberlin6.38">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.3655206661322,52.4819354774486</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>12</ogr:ID>
+      <ogr:ID>10</ogr:ID>
       <ogr:LAT>52.481879999999997</ogr:LAT>
       <ogr:LONG>13.365610000000000</ogr:LONG>
       <ogr:NAME>Bright Site</ogr:NAME>
@@ -1203,12 +1203,12 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:Kinderfreu>Ja</ogr:Kinderfreu>
       <ogr:Quelle>boulder-project.de</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.39">
+    <ogr:spotsberlin6 fid="spotsberlin6.39">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.3699080442198,52.4271012333136</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>17</ogr:ID>
+      <ogr:ID>14</ogr:ID>
       <ogr:LAT>52.427090000000000</ogr:LAT>
       <ogr:LONG>13.369960000000001</ogr:LONG>
       <ogr:NAME>T-Hall Kletterhalle</ogr:NAME>
@@ -1219,7 +1219,7 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:EIGNER>T-Hall Kletteranlagen GmbH Berlin</ogr:EIGNER>
       <ogr:TELNR>030 68089864</ogr:TELNR>
       <ogr:EMAIL>info@diekletterhalle.de</ogr:EMAIL>
-      <ogr:OEFFZEIT>Mo. -Fr. 10:00 - 24:00; 
+      <ogr:OEFFZEIT>Mo. -Fr. 10:00 - 24:00;
 Sa. So. 10:00 - 22:00</ogr:OEFFZEIT>
       <ogr:PREIS>16.00</ogr:PREIS>
       <ogr:INOUT>indoor/outdoor</ogr:INOUT>
@@ -1235,12 +1235,12 @@ Sa. So. 10:00 - 22:00</ogr:OEFFZEIT>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:Kinderfreu>Ja</ogr:Kinderfreu>
       <ogr:Quelle>http://www.klettern-in-berlin.de/klettern.php?nr=279&amp;aktion=showone</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
   <gml:featureMember>
-    <ogr:spotsberlin5 fid="spotsberlin5.40">
+    <ogr:spotsberlin6 fid="spotsberlin6.40">
       <ogr:geometryProperty><gml:Point srsName="EPSG:4326"><gml:coordinates>13.38698920634,52.5440531556227</gml:coordinates></gml:Point></ogr:geometryProperty>
-      <ogr:ID>20</ogr:ID>
+      <ogr:ID>15</ogr:ID>
       <ogr:LAT>52.544209000000002</ogr:LAT>
       <ogr:LONG>13.387278999999999</ogr:LONG>
       <ogr:NAME>Kleiner Bunker im Humboldthain</ogr:NAME>
@@ -1264,6 +1264,6 @@ Sa. So. 10:00 - 22:00</ogr:OEFFZEIT>
       <ogr:BEARBEITER>hagen</ogr:BEARBEITER>
       <ogr:Kinderfreu>Nein</ogr:Kinderfreu>
       <ogr:Quelle>kletterwiki.de/Kleiner_Bunker</ogr:Quelle>
-    </ogr:spotsberlin5>
+    </ogr:spotsberlin6>
   </gml:featureMember>
 </ogr:FeatureCollection>

@@ -93,7 +93,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
 
     // Floating Action Buttons & Menus
     FloatingActionMenu FAM_InOut;
-    FloatingActionButton fabIN, fabOut, fabInOut, locationButton;
+    FloatingActionButton fabIN, fabOut, fabInOut;
+    android.support.design.widget.FloatingActionButton locationButton;
 
     // Filters for Map
     Boolean showclimb, showSatellite_streets;
@@ -213,7 +214,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         fabInOut.setLabelVisibility((filter_labels) ? 1 : 0);
 
         // more map stuff
-        locationButton = (FloatingActionButton) view.findViewById(R.id.location_toggle_fab);
+        locationButton = (android.support.design.widget.FloatingActionButton) view.findViewById(R.id.location_toggle_fab);
         mapView.onCreate(savedInstanceState);
         onMapReady(mapboxMap);
 
@@ -369,7 +370,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 10, locationListener);
                 }
 
-                // requesting location for android smaller than marshmallow (API23)
+                // requesting location for android smaller than marshmallow API23)
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
                     locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 500,
                             0, locationListener);
@@ -452,12 +453,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                         .zoom(zoomLevelMap)
                         .build();
+
                 // map animation to position
                 mapboxMap.animateCamera(CameraUpdateFactory
                         .newCameraPosition(position), 6000);
 
                 // loading data and sets the markers
-                String filename = "spotsberlin5";
+                String filename = "spotsberlin6";
                 try {
                     XMLParser parser = new XMLParser();
                     gml = parser.loadFile(filename, getResources(), true);

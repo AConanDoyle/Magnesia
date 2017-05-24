@@ -18,17 +18,19 @@ import climbberlin.de.mapapps.climbup.R;
 
 public class CustomList extends ArrayAdapter<String> {
 
-    private ArrayList<String> titles, type, inout, krouten, brouten, adress, material, opening, webadress, price
-            = new ArrayList<String>();
+    private ArrayList<String> titles, type, inout, krouten, brouten, adress, material,
+            opening, webadress, price = new ArrayList<String>();
     private ArrayList<Double> lat, longC;
-    private ArrayList<Integer> imageid;
+    private ArrayList<Integer> imageid, spotid;
     private Activity context;
 
-    public CustomList(Activity context, ArrayList<String> heads, ArrayList<Integer> imageid, ArrayList<String> type, ArrayList<String> inout,
-                      ArrayList<String> krouten, ArrayList<String> brouten, ArrayList<String> material, ArrayList<String> opening, ArrayList<String> price,
+    public CustomList(Activity context, ArrayList<Integer> spotid, ArrayList<String> heads, ArrayList<Integer> imageid,
+                      ArrayList<String> type, ArrayList<String> inout, ArrayList<String> krouten, ArrayList<String> brouten,
+                      ArrayList<String> material, ArrayList<String> opening, ArrayList<String> price,
                       ArrayList<String> adress, ArrayList<Double> lat, ArrayList<Double> longC, ArrayList<String> webadress) {
         super(context, R.layout.list_contant_item, heads);
         this.context = context;
+        this.spotid = spotid;
         this.titles = heads;
         this.imageid = imageid;
         this.type = type;
@@ -61,6 +63,7 @@ public class CustomList extends ArrayAdapter<String> {
         TextView textViewAdress = (TextView) listViewItem.findViewById(R.id.textViewAdress);
         TextView textViewLat = (TextView) listViewItem.findViewById(R.id.textViewLat);
         TextView textViewLong = (TextView) listViewItem.findViewById(R.id.textViewLong);
+        TextView textViewSpotID = (TextView) listViewItem.findViewById(R.id.textViewSpotID);
         TextView textViewWebadress = (TextView) listViewItem.findViewById(R.id.textViewWebadress);
 
         NumberFormat nm = NumberFormat.getNumberInstance();
@@ -90,6 +93,7 @@ public class CustomList extends ArrayAdapter<String> {
         textViewAdress.setText(adress.get(position));
         textViewLat.setText(nm.format(lat.get(position)));
         textViewLong.setText(nm.format(longC.get(position)));
+        textViewSpotID.setText(nm.format(spotid.get(position)));
         textViewWebadress.setText(webadress.get(position));
 
         return listViewItem;

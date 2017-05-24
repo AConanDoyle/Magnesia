@@ -223,6 +223,14 @@
         android:visibility="invisible" />
 
     <TextView
+        android:id="@+id/textViewSpotID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewLat"
+        android:layout_gravity="right"
+        android:visibility="invisible" />
+
+    <TextView
         android:id="@+id/textViewWebLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

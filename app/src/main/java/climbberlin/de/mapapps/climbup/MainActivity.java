@@ -19,28 +19,30 @@ import android.widget.TextView;
 
 import com.webianks.easy_feedback.EasyFeedback;
 
+import climbberlin.de.mapapps.climbup.Fragments.FavoritesListFragment;
 import climbberlin.de.mapapps.climbup.Fragments.ListFragment;
 import climbberlin.de.mapapps.climbup.Fragments.MapFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        MapFragment.OnFragmentInteractionListener, ListFragment.OnFragmentInteractionListener,
+        MapFragment.OnFragmentInteractionListener, ListFragment.OnFragmentInteractionListener, FavoritesListFragment.OnFragmentInteractionListener,
         FragmentManager.OnBackStackChangedListener {
 
     // objects for fragments
     Fragment toFragment = null;
     FragmentManager fragmentManager;
     Bundle bundle = new Bundle();
+
     // object for map typ
     // front = climb map, back = boulder map
     private boolean mShowClimb;
     private boolean appExit;
 
+    // object for listtyp
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Debugging Tool
-        //   Stetho.initializeWithDefaults(this);
 
         // sets toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -49,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // creates initial fragment
         if (savedInstanceState == null) {
             try {
-
                 mShowClimb = true;
                 fragmentManager = getFragmentManager();
                 toFragment = new MapFragment();
@@ -86,13 +87,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (appExit) {
                     super.onBackPressed();
                 }
-            }else{
+            } else {
                 super.onBackPressed();
             }
         }
     }
 
-    // hanndaling navigation between fragments
+    // handling navigation between fragments
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -113,40 +114,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             toFragment = new ListFragment();
             // 0 = Climbing and Boulderspots
-            bundle.putInt("typ", 0);
+            bundle.putInt("listTyp", 0);
             toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("ClimbandBoulderList").commit();
 
             // shows listview climbspots
         } else if (id == R.id.nav_list_climb) {
 
             toFragment = new ListFragment();
             // 1 = Climbingpots
-            bundle.putInt("typ", 1);
+            bundle.putInt("listTyp", 1);
             toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("ClimbList").commit();
 
             // shows listview boulderspots
         } else if (id == R.id.nav_list_boulder) {
 
             toFragment = new ListFragment();
             // 2 = Boulderspots
-            bundle.putInt("typ", 2);
+            bundle.putInt("listTyp", 2);
             toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("BoulderList").commit();
 
-        }   // Coming soon
-            /*else if (id == R.id.nav_list_favorites) {
+            // shows lsitview favorites list
+        } else if (id == R.id.nav_list_favorites) {
 
-            toFragment = new ListFragment();
-            // 3 = Favoritenliste
-            bundle.putInt("typ", 3);
-            toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
+            toFragment = new FavoritesListFragment();
+            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("FavoriteListe").commit();
 
-        //   calls Feedback dialog
-        } */
-        else if (id == R.id.nav_send) {
+            // calls Feedback dialog
+        } else if (id == R.id.nav_send) {
 
             // Feedback feature
             new EasyFeedback.Builder(this)

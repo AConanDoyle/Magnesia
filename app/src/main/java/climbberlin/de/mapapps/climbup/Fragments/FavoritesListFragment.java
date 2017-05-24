@@ -3,10 +3,8 @@ package climbberlin.de.mapapps.climbup.Fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,29 +16,36 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
-import climbberlin.de.mapapps.climbup.Helper.XMLParser;
+import climbberlin.de.mapapps.climbup.DB.DBHandler;
+import climbberlin.de.mapapps.climbup.DB.Spots;
 import climbberlin.de.mapapps.climbup.ListItemActivity;
 import climbberlin.de.mapapps.climbup.OverActivity;
 import climbberlin.de.mapapps.climbup.Preferences.SettingsActivity;
 import climbberlin.de.mapapps.climbup.R;
 
-public class ListFragment extends Fragment {
+
+public class FavoritesListFragment extends Fragment {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
-    public ListFragment() {
+    public FavoritesListFragment() {
     }
 
     // file input from raw folder
@@ -86,15 +91,23 @@ public class ListFragment extends Fragment {
     // View objects
     View view;
     private ListView listView;
-    private TextView textViewNoContant;
-    Resources resources;
+    private TextView textViewNoContant, textViewNoContant_small;
 
-    // Integer for list typ
-    int typ;
 
-    public static ListFragment newInstance() {
-        ListFragment fragment = new ListFragment();
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment FavoritesListFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static FavoritesListFragment newInstance(String param1, String param2) {
+        FavoritesListFragment fragment = new FavoritesListFragment();
         Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -102,27 +115,30 @@ public class ListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        resources = getActivity().getResources();
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
         setHasOptionsMenu(true);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        view = inflater.inflate(R.layout.fragment_list, container, false);
-        getActivity().setTitle("Magnesia");
-
-        // Choosing the Spottyps, for instanca climbing oder boulderspots
-        Bundle bundle = getArguments();
-        typ = bundle.getInt("listTyp");
-        if (bundle != null) {
-            handleSpots(typ);
-        } else {
-            // default value 0; 0 = cimbing and Boulderspots
-            handleSpots(0);
-        }
+        // Inflate the layout for this fragment
+        view = inflater.inflate(R.layout.fragment_favorites_list, container, false);
+        listView = (ListView) view.findViewById(R.id.listView_favorits);
+        textViewNoContant = (TextView) view.findViewById(R.id.favorites_no_contant);
+        textViewNoContant_small = (TextView) view.findViewById(R.id.favorites_no_contant_small);
+        handleSpots();
         return view;
+    }
+
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
     }
 
     @Override
@@ -148,49 +164,9 @@ public class ListFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    public void handleSpots(int typ) {
+    public void handleSpots() {
 
-        try {
-            XMLParser parser = new XMLParser();
-            String filename = "spotsberlin6";
-            gml = parser.loadFile(filename, resources, true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        XMLParser parser = new XMLParser();
-        Document doc = parser.getDomElement(gml);
-        NodeList nl = doc.getElementsByTagName(KEY_FM);
-
-        for (int i = 0; i < nl.getLength(); i++) {
-            Element e = (Element) nl.item(i);
-
-            switch (typ) {
-                case 0:
-                    // Climbing- & Boulderpots
-                    getActivity().setTitle(getText(R.string.nav_drawer_list_climb_boulder));
-                    settToList(parser, e);
-                    break;
-                case 1:
-                    // Climbing
-                    if (parser.getValue(e, KEY_TYPE).equals("Klettern")) {
-                        getActivity().setTitle(getText(R.string.nav_drawer_list_climb));
-                        settToList(parser, e);
-                    }
-                    break;
-                case 2:
-                    // Boulderpots
-                    if (parser.getValue(e, KEY_TYPE).equals("Bouldern")) {
-                        getActivity().setTitle(getText(R.string.nav_drawer_list_boulder));
-                        settToList(parser, e);
-                    }
-                    break;
-                default:
-                    settToList(parser, e);
-                    break;
-            }
-
-        }
+        setFavoriteSpots();
 
         head.removeAll(Collections.singleton(""));
         imageid.remove(Collections.singleton(""));
@@ -211,7 +187,7 @@ public class ListFragment extends Fragment {
         customList = new CustomList(getActivity(), spotid, head, imageid, type, inout, krouten, brouten,
                 material, opening, price, adress, lat, longC, webadress);
 
-        listView = (ListView) view.findViewById(R.id.listView);
+        listView = (ListView) view.findViewById(R.id.listView_favorits);
         listView.setAdapter(customList);
 
         // ClickListener handle if a list item will be clicked
@@ -297,87 +273,66 @@ public class ListFragment extends Fragment {
                 bundle.putDouble("long", tvlong);
                 intentSingleSpot.putExtras(bundle);
                 startActivity(intentSingleSpot);
-
             }
         });
     }
 
-    // method for setting a single spot to a ArrayList
-    public void settToList(XMLParser parser, Element e) {
+    private void setFavoriteSpots() {
 
-        spotid.add(Integer.parseInt(parser.getValue(e, KEY_SPOTID)));
-        head.add(parser.getValue(e, KEY_HEAD));
-        imageid.add(getResources().getIdentifier(parser.getValue(e, KEY_IMAGEID),
-                "drawable", getActivity().getPackageName()));
+        getActivity().setTitle(getText(R.string.nav_drawer_list_favs_spots));
+        DBHandler db = new DBHandler(getActivity());
+        List<Spots> spots = db.getAllSpots();
 
-        if (parser.getValue(e, KEY_KROUTEN).isEmpty()) {
-            krouten.add("n.v.");
+        if (spots.size() == 0) {
+            listView.setVisibility(View.INVISIBLE);
+            textViewNoContant.setVisibility(View.VISIBLE);
+            textViewNoContant_small.setVisibility(View.VISIBLE);
         } else {
-            krouten.add(parser.getValue(e, KEY_KROUTEN));
-        }
+            listView.setVisibility(View.VISIBLE);
+            textViewNoContant.setVisibility(View.INVISIBLE);
+            textViewNoContant_small.setVisibility(View.INVISIBLE);
+            int j = 0;
+            while (j < spots.size()) {
 
-        if (parser.getValue(e, KEY_BROUTEN).isEmpty()) {
-            brouten.add("n.v.");
-        } else {
-            brouten.add(parser.getValue(e, KEY_BROUTEN));
-        }
+                spotid.add(spots.get(j).getId());
+                head.add(spots.get(j).getName());
+                imageid.add(0);
+                if (spots.get(j).getKrouten().isEmpty()) {
+                    krouten.add("n.v.");
+                } else {
+                    krouten.add(spots.get(j).getKrouten());
+                }
 
-        type.add(parser.getValue(e, KEY_TYPE));
-        inout.add(parser.getValue(e, KEY_INOUT));
-        material.add(parser.getValue(e, KEY_MATERIAL));
-        price.add(parser.getValue(e, KEY_PRICE));
-        opening.add(parser.getValue(e, KEY_OPENING));
+                if (spots.get(j).getBrouten().isEmpty()) {
+                    brouten.add("n.v.");
+                } else {
+                    brouten.add(spots.get(j).getBrouten());
+                }
 
-        adress.add(parser.getValue(e, KEY_STREET) + " " + parser.getValue(e, KEY_HOUSENR) + ", "
-                + parser.getValue(e, KEY_POSTALCODE) + " " + parser.getValue(e, KEY_DISTRICT));
+                type.add(spots.get(j).getTyp());
+                inout.add(spots.get(j).getInOut());
+                material.add(spots.get(j).getMaterial());
+                price.add(spots.get(j).getPrice());
+                opening.add(spots.get(j).getOpening());
+                adress.add(spots.get(j).getAddress());
+                lat.add(spots.get(j).getLat());
+                longC.add(spots.get(j).getLong());
 
-        lat.add(Double.parseDouble(parser.getValue(e, KEY_LAT)));
-        longC.add(Double.parseDouble(parser.getValue(e, KEY_LONG)));
-
-        if (parser.getValue(e, KEY_WEBADRESS).isEmpty()) {
-            webadress.add("n.v.");
-        } else {
-            webadress.add(parser.getValue(e, KEY_WEBADRESS));
-        }
-    }
-
-    // deprecated
-    public int[] remov_empty_elements(int[] arrayInput) {
-        int[] arrayOutput = new int[arrayInput.length];
-        for (int i = 0; i < arrayInput.length; i++) {
-            if (arrayInput[i] != 0) {
-                arrayOutput[i] = arrayInput[i];
+                if (spots.get(j).getWeb().isEmpty()) {
+                    webadress.add("n.v.");
+                } else {
+                    webadress.add(spots.get(j).getWeb());
+                }
+                j++;
             }
         }
-        return arrayOutput;
-    }
-
-    // lifecycle methods
-    public void onPause() {
-        super.onPause();
-        Log.d("lifecycle", "onPause invoked");
     }
 
     @Override
     public void onResume() {
+        customList.clear();
+        handleSpots();
         super.onResume();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("lifecycle", "onDestroy invoked");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d("lifecycle", "onDestroyView invoked");
     }
 
     @Override
@@ -397,7 +352,18 @@ public class ListFragment extends Fragment {
         mListener = null;
     }
 
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
     public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
