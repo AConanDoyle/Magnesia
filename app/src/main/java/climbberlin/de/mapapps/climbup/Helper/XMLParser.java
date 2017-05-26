@@ -20,7 +20,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
- * Created by Hagen on 06.03.2017.
+ * Created by AConanDoyle on 06.03.2017.
  */
 
 public class XMLParser {

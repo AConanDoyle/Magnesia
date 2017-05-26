@@ -94,7 +94,6 @@ public class ListItemActivity extends AppCompatActivity {
                 Document doc = parser.getDomElement(gml);
                 NodeList nl = doc.getElementsByTagName("gml:featureMember");
 
-                // To-Do: change loop typ!
                 for (int i = 0; i < nl.getLength(); i++) {
                     Element e = (Element) nl.item(i);
 
@@ -200,11 +199,12 @@ public class ListItemActivity extends AppCompatActivity {
 
                 // adds single marker on map
                 mapboxMap.addMarker(new MarkerViewOptions()
+                        .position(new LatLng(Lat, Long))
                         .title(textViewTitle.getText().toString())
                         .icon(mIconBuilder.setIcon())
                         .anchor(0.5f, 1.0f)
-                        .visible(true)
-                        .position(new LatLng(Lat, Long)));
+                        .visible(true));
+
             }
         });
 

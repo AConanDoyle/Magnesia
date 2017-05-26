@@ -23,12 +23,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.io.IOException;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Locale;
 
 import climbberlin.de.mapapps.climbup.Helper.XMLParser;
 import climbberlin.de.mapapps.climbup.ListItemActivity;
@@ -254,31 +251,16 @@ public class ListFragment extends Fragment {
                 TextView textViewweb = (TextView) selectedItem.findViewById(R.id.textViewWebadress);
                 String tvweb = textViewweb.getText().toString();
 
-                // Change decimal seperator
-                NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
-
                 TextView tVlat = (TextView) selectedItem.findViewById(R.id.textViewLat);
+                Double tvlat = Double.parseDouble(tVlat.getText().toString().replace(',', '.'));
+
                 TextView tVlong = (TextView) selectedItem.findViewById(R.id.textViewLong);
+                Double tvlong = Double.parseDouble(tVlong.getText().toString().replace(',', '.'));
+
                 TextView tVpotid = (TextView) selectedItem.findViewById(R.id.textViewSpotID);
+                Integer tvspotID = Integer.parseInt(tVpotid.getText().toString());
 
-                Number numberlat = null;
-                Number numberlong = null;
-                Number numberspotID = null;
-
-                try {
-                    numberlat = format.parse(tVlat.getText().toString());
-                    numberlong = format.parse(tVlong.getText().toString());
-                    numberspotID = format.parse(tVpotid.getText().toString());
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-                Double tvlat = numberlat.doubleValue();
-                Double tvlong = numberlong.doubleValue();
-                Integer tvspotID = numberspotID.intValue();
-
-                // String tvlong = textViewlong.getText().toString();
-
+                // put data into bundle for next Activity
                 Intent intentSingleSpot = new Intent(getActivity().getApplicationContext(),
                         ListItemActivity.class);
                 Bundle bundle = new Bundle();

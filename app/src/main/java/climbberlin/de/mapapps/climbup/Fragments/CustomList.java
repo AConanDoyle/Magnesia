@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import climbberlin.de.mapapps.climbup.R;
@@ -66,8 +65,6 @@ public class CustomList extends ArrayAdapter<String> {
         TextView textViewSpotID = (TextView) listViewItem.findViewById(R.id.textViewSpotID);
         TextView textViewWebadress = (TextView) listViewItem.findViewById(R.id.textViewWebadress);
 
-        NumberFormat nm = NumberFormat.getNumberInstance();
-
         // Sets the image for a spot or a default image
         if (imageid.get(position) != 0) {
             Picasso.with(context).load(imageid.get(position)).into(imageView);
@@ -91,9 +88,9 @@ public class CustomList extends ArrayAdapter<String> {
         textViewOpening.setText(opening.get(position));
         textViewPrice.setText(price.get(position));
         textViewAdress.setText(adress.get(position));
-        textViewLat.setText(nm.format(lat.get(position)));
-        textViewLong.setText(nm.format(longC.get(position)));
-        textViewSpotID.setText(nm.format(spotid.get(position)));
+        textViewLat.setText(lat.get(position).toString());
+        textViewLong.setText(longC.get(position).toString());
+        textViewSpotID.setText(Integer.toString(spotid.get(position)));
         textViewWebadress.setText(webadress.get(position));
 
         return listViewItem;

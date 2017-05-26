@@ -7,7 +7,7 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 
 /**
- * Created by Hagen on 08.03.2017.
+ * Created by AConanDoyle on 08.03.2017.
  */
 
 public class SetMarkers {
