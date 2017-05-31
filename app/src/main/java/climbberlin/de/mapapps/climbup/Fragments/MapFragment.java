@@ -222,9 +222,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         // shows the Intro just once
         DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
         FancyShowCaseView ShowCaseViewMapFlip = new FancyShowCaseView.Builder(getActivity())
-              //  .focusOn(view.findViewById(R.id.map_flip))
-                .focusCircleAtPosition((int)(displayMetrics.widthPixels * 0.85),
-                        (int)(displayMetrics.heightPixels * 0.10), 80)
+                //  .focusOn(view.findViewById(R.id.map_flip))
+                .focusCircleAtPosition((int) (displayMetrics.widthPixels * 0.85),
+                        (int) (displayMetrics.heightPixels * 0.10), 80)
                 .title(getString(R.string.map_flip_show_case))
                 .closeOnTouch(true)
                 .backgroundColor(Color.argb(150, 128, 128, 128))
@@ -232,8 +232,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                 .build();
 
         FancyShowCaseView FancyShowCaseViewFilterMenu = new FancyShowCaseView.Builder(getActivity())
-                .focusCircleAtPosition((int)(displayMetrics.widthPixels * 0.10),
-                        (int)(displayMetrics.heightPixels * 0.90), 120) // Not relative!
+                .focusCircleAtPosition((int) (displayMetrics.widthPixels * 0.10),
+                        (int) (displayMetrics.heightPixels * 0.90), 120) // Not relative!
                 .title(getString(R.string.filter_button_show_case))
                 .closeOnTouch(true)
                 .backgroundColor(Color.argb(150, 128, 128, 128))
@@ -264,7 +264,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         ? "Standardansicht"
                         : "Satellitenansicht");
 
+      //  MenuItem itemZoomtoExtention = menu.add(Menu.NONE, item_zoomtobb , Menu.NONE,"BBox");
+
         itemSatelliteMap.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+   //     itemZoomtoExtention.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         itemMapTyp.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         getActivity().getMenuInflater().inflate(R.menu.menu_appbar, menu);
@@ -321,6 +324,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                     }
                 });
                 break;
+            /*case item_satellite_streets :
+
+                LatLngBounds latLngBounds = new LatLngBounds.Builder()
+                        .include(new LatLng(52.71117, 13.82835)) // Northeast
+                        .include(new LatLng(52.38297, 13.03185)) // Southwest
+                        .build();
+
+                mapboxMap.easeCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 50), 5000);
+                break;*/
         }
         return super.onOptionsItemSelected(item);
     }

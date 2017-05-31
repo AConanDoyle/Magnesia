@@ -3,6 +3,7 @@
     <!-- items related to Map flips!!  -->
     <item type="id" name="map_flip" />
     <item type="id" name="item_satellite_streets" />
+    <item type="id" name="item_zoomtobb" />
 
     <!-- items related to favorites_spots!!  -->
     <item type="id" name="addToFavorites"/>

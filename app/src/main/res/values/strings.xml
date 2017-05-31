@@ -26,7 +26,7 @@
 Angaben
 gem&auml;&szlig; &sect; 5 TMG<br/>
 <br/>
-Anonymous
+Autor Hagen Tischer
 <br/>
 <br/>
 Kontakt:
@@ -150,5 +150,6 @@ f&uuml;r jedwede Angaben &uuml;bernommen werden kann.<br/>
         oder Kletterspots wechseln.</string>
     <string name="filter_button_show_case">Der Filterbutton ermöglicht das Filtern der Spots nach Indoor und
         Outdoor.</string>
+    <string name="title_activity_about_libraries">AboutLibraries</string>
 
 </resources>
