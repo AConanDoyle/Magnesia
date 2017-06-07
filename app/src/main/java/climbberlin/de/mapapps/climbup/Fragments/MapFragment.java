@@ -264,10 +264,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         ? "Standardansicht"
                         : "Satellitenansicht");
 
-      //  MenuItem itemZoomtoExtention = menu.add(Menu.NONE, item_zoomtobb , Menu.NONE,"BBox");
+    //    MenuItem itemZoomtoExtention = menu.add(Menu.NONE, item_zoomtobb , Menu.NONE,"Zoom ");
 
         itemSatelliteMap.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-   //     itemZoomtoExtention.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+    //    itemZoomtoExtention.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         itemMapTyp.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         getActivity().getMenuInflater().inflate(R.menu.menu_appbar, menu);
@@ -324,13 +324,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                     }
                 });
                 break;
-            /*case item_satellite_streets :
-
+/*            case item_zoomtobb :
                 LatLngBounds latLngBounds = new LatLngBounds.Builder()
                         .include(new LatLng(52.71117, 13.82835)) // Northeast
                         .include(new LatLng(52.38297, 13.03185)) // Southwest
                         .build();
-
                 mapboxMap.easeCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 50), 5000);
                 break;*/
         }

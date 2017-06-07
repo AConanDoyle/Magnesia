@@ -1,255 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textViewTitels"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="10dp"
-        android:singleLine="true"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:elevation="12dp"/>
+    android:orientation="horizontal">
 
     <android.support.v7.widget.CardView
         android:id="@+id/view2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@+id/textViewTitels"
-        android:layout_centerHorizontal="true"
-        android:elevation="12dp"
-        android:shape="ring"
-        android:thicknessRatio="1.9"
-        app:cardCornerRadius="70dp"
-        android:alwaysDrawnWithCache="true">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:alwaysDrawnWithCache="true"
+        android:padding="20dp"
+        android:shape="rectangle"
+        android:thicknessRatio="6.0"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:shape="ring"
-            android:layout_alignParentTop="true"></ImageView>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewTitels"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:cardElevation="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageViewClimborBoulder"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textViewTitels"
+                android:layout_marginLeft="5dp"
+                android:elevation="12dp"
+                android:shape="line" />
+
+            <!--            <ImageView
+                android:id="@+id/imageViewInnOrOut"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textViewTitels"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageViewClimborBoulder"
+                android:elevation="12dp"
+                android:shape="line" />-->
+
+            <TextView
+                android:id="@+id/textViewTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewClimborBoulder"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/typ"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewTypeLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewTypeLabel"
+                android:layout_toRightOf="@+id/textViewTypeLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewInOUTLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewTypeLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/inoutdoor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewInOUT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewInOUTLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewInOUTLabel"
+                android:layout_toRightOf="@+id/textViewInOUTLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewKROUTENLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewInOUTLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/krouten"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewKRouten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewKROUTENLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewKROUTENLabel"
+                android:layout_toRightOf="@+id/textViewKROUTENLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewBROUTENLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewKROUTENLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/brouten"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewBRouten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewBROUTENLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewBROUTENLabel"
+                android:layout_toRightOf="@+id/textViewBROUTENLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewMaterialLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewBROUTENLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/material"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewMaterial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewMaterialLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewMaterialLabel"
+                android:layout_toRightOf="@+id/textViewMaterialLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewOpeningLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewMaterialLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/opening"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewopening"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewOpeningLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewOpeningLabel"
+                android:layout_toRightOf="@+id/textViewOpeningLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewPriceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewopening"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/price"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewPriceLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewPriceLabel"
+                android:layout_toRightOf="@+id/textViewPriceLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewAdressLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPriceLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/adress"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textViewAdressLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/textViewAdressLabel"
+                android:layout_toRightOf="@+id/textViewAdressLabel"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewLat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewAdress"
+                android:layout_gravity="right"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textViewLong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewLat"
+                android:layout_gravity="right"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textViewSpotID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewLat"
+                android:layout_gravity="right"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textViewWebLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewLong"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/web"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewWebadress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textViewWebLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/textViewWebLabel"
+                android:clickable="true"
+                android:onClick="callWebAdress"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
-
-    <TextView
-        android:id="@+id/textViewTypeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view2"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/typ"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewTypeLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewTypeLabel"
-        android:layout_toRightOf="@+id/textViewTypeLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewInOUTLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTypeLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/inoutdoor"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewInOUT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewInOUTLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewInOUTLabel"
-        android:layout_toRightOf="@+id/textViewInOUTLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewKROUTENLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewInOUTLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/krouten"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewKRouten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewKROUTENLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewKROUTENLabel"
-        android:layout_toRightOf="@+id/textViewKROUTENLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewBROUTENLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewKROUTENLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/brouten"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewBRouten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewBROUTENLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewBROUTENLabel"
-        android:layout_toRightOf="@+id/textViewBROUTENLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewMaterialLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewBROUTENLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/material"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewMaterial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewMaterialLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewMaterialLabel"
-        android:layout_toRightOf="@+id/textViewMaterialLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewOpeningLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewMaterialLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/opening"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewopening"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewOpeningLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewOpeningLabel"
-        android:layout_toRightOf="@+id/textViewOpeningLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewPriceLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewOpeningLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/price"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewPriceLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewPriceLabel"
-        android:layout_toRightOf="@+id/textViewPriceLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewAdressLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewPriceLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/adress"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textViewAdress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewAdressLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/textViewAdressLabel"
-        android:layout_toRightOf="@+id/textViewAdressLabel"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewLat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewAdress"
-        android:layout_gravity="right"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/textViewLong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewLat"
-        android:layout_gravity="right"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/textViewSpotID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewLat"
-        android:layout_gravity="right"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/textViewWebLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewLong"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/web"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textViewWebadress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewWebLabel"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/textViewWebLabel"
-        android:clickable="true"
-        android:onClick="callWebAdress"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-</RelativeLayout>
+</LinearLayout>

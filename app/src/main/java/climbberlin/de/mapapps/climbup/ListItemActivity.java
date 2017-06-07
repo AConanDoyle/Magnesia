@@ -251,7 +251,7 @@ public class ListItemActivity extends AppCompatActivity {
                         : R.string.favorite_no);
 
         itemFavoriteButton.setIcon(db.checkIfSpotExists(SpotId)
-                ? R.drawable.black_heart
+                ? R.drawable.ic_favorite
                 : R.drawable.ic_favorite_border);
 
         itemFavoriteButton.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);

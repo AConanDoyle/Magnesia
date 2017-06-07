@@ -51,7 +51,8 @@ public class CustomList extends ArrayAdapter<String> {
         LayoutInflater inflater = context.getLayoutInflater();
         View listViewItem = inflater.inflate(R.layout.list_contant_item, null, true);
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.textViewTitels);
-        ImageView imageView = (ImageView) listViewItem.findViewById(R.id.imageView);
+        ImageView imageViewClimbOrBoulder = (ImageView) listViewItem.findViewById(R.id.imageViewClimborBoulder);
+     //   ImageView imageViewInnOrOut = (ImageView) listViewItem.findViewById(R.id.imageViewInnOrOut);
         TextView textViewType = (TextView) listViewItem.findViewById(R.id.textViewType);
         TextView textViewInOut = (TextView) listViewItem.findViewById(R.id.textViewInOUT);
         TextView textViewKRouten = (TextView) listViewItem.findViewById(R.id.textViewKRouten);
@@ -67,16 +68,29 @@ public class CustomList extends ArrayAdapter<String> {
 
         // Sets the image for a spot or a default image
         if (imageid.get(position) != 0) {
-            Picasso.with(context).load(imageid.get(position)).into(imageView);
-            // imageView.setImageResource(imageid[position]);
+            Picasso.with(context).load(imageid.get(position)).into(imageViewClimbOrBoulder);
+            // imageViewClimbOrBoulder.setImageResource(imageid[position]);
         } else {
-            Picasso.with(context).load(R.mipmap.ic_launcher).into(imageView);
-                if (type.get(position).equals("Bouldern")){
-                Picasso.with(context).load(R.drawable.ic_button_black).into(imageView);
+            Picasso.with(context).load(R.mipmap.ic_launcher).into(imageViewClimbOrBoulder);
+            if (type.get(position).equals("Bouldern")) {
+                Picasso.with(context).load(R.drawable.ic_button_black).into(imageViewClimbOrBoulder);
             } else {
-                Picasso.with(context).load(R.drawable.ic_button_white).into(imageView);
+                Picasso.with(context).load(R.drawable.ic_button_white).into(imageViewClimbOrBoulder);
             }
+
+           /* switch (inout.get(position)) {
+                case "indoor":
+                    Picasso.with(context).load(R.drawable.ic_indoor_white).into(imageViewClimbOrBoulder);
+                    break;
+                case "outdoor":
+                    Picasso.with(context).load(R.drawable.ic_outdoor_white).into(imageViewClimbOrBoulder);
+                    break;
+                case "indoor/outdoor":
+                    Picasso.with(context).load(R.drawable.ic_indoor_and_outdoor_white).into(imageViewClimbOrBoulder);
+                    break;
+            }*/
         }
+
 
         // set the values in the text
         textViewName.setText(titles.get(position));

@@ -38,6 +38,7 @@
                 tools:visibility="invisible" />
 
         </LinearLayout>
+
         <ListView
             android:id="@+id/listView_favorits"
             android:layout_width="match_parent"

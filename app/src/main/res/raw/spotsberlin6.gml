@@ -150,7 +150,7 @@
       <ogr:EIGNER>Boulderer</ogr:EIGNER>
       <ogr:TELNR>030 667 66 837</ogr:TELNR>
       <ogr:OEFFZEIT>Mo. Sa. So. 10:00 - 23:00; Di. - Fr. 08:00 - 23:00</ogr:OEFFZEIT>
-      <ogr:PREIS>ab 7.00</ogr:PREIS>
+      <ogr:PREIS>ab 7,00 €</ogr:PREIS>
       <ogr:INOUT>indoor/outdoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern &amp; Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Beton</ogr:MATERIAL>
@@ -181,7 +181,7 @@
       <ogr:EIGNER>Magic Mountain GmbH</ogr:EIGNER>
       <ogr:TELNR>030 887 157 90</ogr:TELNR>
       <ogr:OEFFZEIT>Mo. - Sa. 13:00 - 23:30; Sa. So. 10:00 - 22:00</ogr:OEFFZEIT>
-      <ogr:PREIS>2 Stunden 14.00</ogr:PREIS>
+      <ogr:PREIS>2 Stunden 14,00 €</ogr:PREIS>
       <ogr:INOUT>indoor/outdoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern &amp; Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz/Beton</ogr:MATERIAL>
@@ -305,7 +305,7 @@
       <ogr:TELNR>535 15 72</ogr:TELNR>
       <ogr:EMAIL>info@sjcarena.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Mo. - Fr. 09:00 - 20:00; Sa 11:00 - 19:00</ogr:OEFFZEIT>
-      <ogr:PREIS>1,00</ogr:PREIS>
+      <ogr:PREIS>1,00 €</ogr:PREIS>
       <ogr:INOUT>outdoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern &amp; Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>T-Wall, Kunststoff</ogr:MATERIAL>
@@ -395,7 +395,7 @@
       <ogr:ZUGANG>hinterm FEZ Wuhlheide</ogr:ZUGANG>
       <ogr:EIGNER>Altai-Reisen</ogr:EIGNER>
       <ogr:OEFFZEIT>Di. Mi. Do. Sa. So. 13:00 - 18:00;  Sommer und Herbst</ogr:OEFFZEIT>
-      <ogr:PREIS>2,00 - 30.00</ogr:PREIS>
+      <ogr:PREIS>2,00 - 30.00 €</ogr:PREIS>
       <ogr:INOUT>outdoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -452,7 +452,7 @@
       <ogr:KONTAKT>Anett Jahnke</ogr:KONTAKT>
       <ogr:TELNR>030 604 10 93</ogr:TELNR>
       <ogr:OEFFZEIT>Do. 16:00 - 20:00; Fr. 14:00 - 17:00 nur Mädchen</ogr:OEFFZEIT>
-      <ogr:PREIS>2.00</ogr:PREIS>
+      <ogr:PREIS>2,00 €</ogr:PREIS>
       <ogr:INOUT>outdoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern &amp; Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>T-Wall</ogr:MATERIAL>
@@ -482,7 +482,7 @@
       <ogr:ANREISE>Nähe S-Bahn Bahnhof Sonnenalle</ogr:ANREISE>
       <ogr:EIGNER>Bouldergarten</ogr:EIGNER>
       <ogr:OEFFZEIT>Mo. - Fr. 10:00 - 23:00; Sa. So. 10:00 - 22:00</ogr:OEFFZEIT>
-      <ogr:PREIS>10,00</ogr:PREIS>
+      <ogr:PREIS>10,00 €</ogr:PREIS>
       <ogr:INOUT>indoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern &amp; Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz, Struktur Kunststoff</ogr:MATERIAL>
@@ -574,7 +574,7 @@
       <ogr:TELNR>030 442 13 70</ogr:TELNR>
       <ogr:EMAIL>sjcprenzlauerberg@web.de</ogr:EMAIL>
       <ogr:OEFFZEIT>ab April Mo. - Fr. 14:00 - 20:00</ogr:OEFFZEIT>
-      <ogr:PREIS>1,00</ogr:PREIS>
+      <ogr:PREIS>1,00 €</ogr:PREIS>
       <ogr:INOUT>outdoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern &amp; Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>T-Wall, Struktur-Kunststoff</ogr:MATERIAL>
@@ -662,7 +662,7 @@
       <ogr:EIGNER>Ostbloc GmbH</ogr:EIGNER>
       <ogr:TELNR>030 554 994 22</ogr:TELNR>
       <ogr:EMAIL>info@ostbloc.de</ogr:EMAIL>
-      <ogr:PREIS>4 bis 8</ogr:PREIS>
+      <ogr:PREIS>4,00 bis 8,00 €</ogr:PREIS>
       <ogr:INOUT>indoor</ogr:INOUT>
       <ogr:NUTZEN>Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -948,7 +948,7 @@
       <ogr:TELNR>030 79 78 46 46 oder 0172 80 1 44 24</ogr:TELNR>
       <ogr:EMAIL>info@boulderworx.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Mo. - Do. 08:00 – 21:30; Fr. 09:00 – 22:30; Sa. 10:00 – 20:30; So. 09:00 – 20:30</ogr:OEFFZEIT>
-      <ogr:PREIS>4.00 - 9.00</ogr:PREIS>
+      <ogr:PREIS>4.00 - 9.00 €</ogr:PREIS>
       <ogr:INOUT>indoor/outdoor</ogr:INOUT>
       <ogr:NUTZEN>Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -1014,7 +1014,7 @@
       <ogr:EMAIL>info@boulderklub.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Sa. Mo.10:00 - 22:00;
 Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
-      <ogr:PREIS>9.00</ogr:PREIS>
+      <ogr:PREIS>9,00 €</ogr:PREIS>
       <ogr:INOUT>indoor</ogr:INOUT>
       <ogr:NUTZEN>Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -1045,7 +1045,7 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:TELNR>030 - 330 99 86 36</ogr:TELNR>
       <ogr:EMAIL>info@dav-kletterzentrum.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Mo. - So. 10.00 - 23.00</ogr:OEFFZEIT>
-      <ogr:PREIS>DAV-Mitgliedschaft + 11.00</ogr:PREIS>
+      <ogr:PREIS>DAV-Mitgliedschaft + 11,00 €</ogr:PREIS>
       <ogr:INOUT>indoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern &amp; Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -1074,7 +1074,7 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:TELNR>030 74 00 18 10</ogr:TELNR>
       <ogr:EMAIL>info@suedbloc.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Mo. - So. 10.00 - 23.00</ogr:OEFFZEIT>
-      <ogr:PREIS>9.00</ogr:PREIS>
+      <ogr:PREIS>9,00 €</ogr:PREIS>
       <ogr:INOUT>indoor</ogr:INOUT>
       <ogr:NUTZEN>Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -1106,7 +1106,7 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:TELNR>030 914 247 30</ogr:TELNR>
       <ogr:EMAIL>info@bertablock.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Mo. Do. 11.00 - 23.00; Di. Mi.Fr. 09.00 – 23.00; Sa. So. 10.00 - 23.00</ogr:OEFFZEIT>
-      <ogr:PREIS>10,00</ogr:PREIS>
+      <ogr:PREIS>10,00 €</ogr:PREIS>
       <ogr:INOUT>indoor</ogr:INOUT>
       <ogr:NUTZEN>Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -1189,7 +1189,7 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:TELNR>030 490 807 07</ogr:TELNR>
       <ogr:EMAIL>info@boulder-project.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Mo. - So- 10:00 - 23:00</ogr:OEFFZEIT>
-      <ogr:PREIS>10,00</ogr:PREIS>
+      <ogr:PREIS>10,00 €</ogr:PREIS>
       <ogr:INOUT>indoor/outdoor</ogr:INOUT>
       <ogr:NUTZEN>Bouldern</ogr:NUTZEN>
       <ogr:MATERIAL>Holz</ogr:MATERIAL>
@@ -1221,7 +1221,7 @@ Di. - Fr. 08:00 - 22:00</ogr:OEFFZEIT>
       <ogr:EMAIL>info@diekletterhalle.de</ogr:EMAIL>
       <ogr:OEFFZEIT>Mo. -Fr. 10:00 - 24:00;
 Sa. So. 10:00 - 22:00</ogr:OEFFZEIT>
-      <ogr:PREIS>16.00</ogr:PREIS>
+      <ogr:PREIS>16,00€</ogr:PREIS>
       <ogr:INOUT>indoor/outdoor</ogr:INOUT>
       <ogr:NUTZEN>Klettern</ogr:NUTZEN>
       <ogr:MATERIAL>Platten mit Griffen</ogr:MATERIAL>
