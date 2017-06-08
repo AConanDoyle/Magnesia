@@ -30,12 +30,10 @@ import climbberlin.de.mapapps.climbup.R;
 
 public class FavoritesListFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -88,17 +86,9 @@ public class FavoritesListFragment extends Fragment {
     View view;
     private ListView listView;
     private TextView textViewNoContant, textViewNoContant_small;
+    private ImageView imageViewHeart;
 
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FavoritesListFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FavoritesListFragment newInstance(String param1, String param2) {
         FavoritesListFragment fragment = new FavoritesListFragment();
         Bundle args = new Bundle();
@@ -124,13 +114,14 @@ public class FavoritesListFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_favorites_list, container, false);
         listView = (ListView) view.findViewById(R.id.listView_favorits);
+
+        imageViewHeart = (ImageView) view.findViewById(R.id.favorites_heart);
         textViewNoContant = (TextView) view.findViewById(R.id.favorites_no_contant);
         textViewNoContant_small = (TextView) view.findViewById(R.id.favorites_no_contant_small);
         handleSpots();
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -266,10 +257,12 @@ public class FavoritesListFragment extends Fragment {
 
         if (spots.size() == 0) {
             listView.setVisibility(View.INVISIBLE);
+            imageViewHeart.setVisibility(View.VISIBLE);
             textViewNoContant.setVisibility(View.VISIBLE);
             textViewNoContant_small.setVisibility(View.VISIBLE);
         } else {
             listView.setVisibility(View.VISIBLE);
+            imageViewHeart.setVisibility(View.INVISIBLE);
             textViewNoContant.setVisibility(View.INVISIBLE);
             textViewNoContant_small.setVisibility(View.INVISIBLE);
             int j = 0;

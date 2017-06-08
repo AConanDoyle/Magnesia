@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toFragment = new MapFragment();
             bundle.putBoolean("maptype", mShowClimb);
             toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack(null).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("Map").commit();
 
             // shows Listview boulder- and climbspots
         } else if (id == R.id.nav_list_climb_boulder) {
@@ -116,7 +116,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // 0 = Climbing and Boulderspots
             bundle.putInt("listTyp", 0);
             toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("ClimbandBoulderList").commit();
+            fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+                    .replace(R.id.fragment, toFragment)
+                    .addToBackStack("ClimbandBoulderList")
+                    .commit();
 
             // shows listview climbspots
         } else if (id == R.id.nav_list_climb) {
@@ -125,7 +129,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // 1 = Climbingpots
             bundle.putInt("listTyp", 1);
             toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("ClimbList").commit();
+            fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+                    .replace(R.id.fragment, toFragment)
+                    .addToBackStack("ClimbList")
+                    .commit();
 
             // shows listview boulderspots
         } else if (id == R.id.nav_list_boulder) {
@@ -134,13 +142,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // 2 = Boulderspots
             bundle.putInt("listTyp", 2);
             toFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("BoulderList").commit();
+            fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+                    .replace(R.id.fragment, toFragment)
+                    .addToBackStack("BoulderList")
+                    .commit();
 
             // shows lsitview favorites list
         } else if (id == R.id.nav_list_favorites) {
 
             toFragment = new FavoritesListFragment();
-            fragmentManager.beginTransaction().replace(R.id.fragment, toFragment).addToBackStack("FavoriteListe").commit();
+            fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+                    .replace(R.id.fragment, toFragment)
+                    .addToBackStack("FavoriteListe")
+                    .commit();
 
             // calls Feedback dialog
         } else if (id == R.id.nav_send) {
