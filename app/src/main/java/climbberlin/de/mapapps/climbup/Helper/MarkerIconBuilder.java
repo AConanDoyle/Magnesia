@@ -17,7 +17,6 @@ public class MarkerIconBuilder {
     private Boolean showClimb;
     private String type, inout;
 
-
     /**
      * Constructor
      * @param context required for IconFactory.class
@@ -61,6 +60,29 @@ public class MarkerIconBuilder {
                 }
                 if (inout.equals("outdoor")) {
                     icon = iconFactory.fromResource(R.mipmap.ic_climb_out);
+                }
+                return icon;
+            case "Klettern & Bouldern":
+                if (showClimb) {
+                    if (inout.equals("indoor/outdoor")) {
+                        icon = iconFactory.fromResource(R.mipmap.ic_climb_in_out);
+                    }
+                    if (inout.equals("indoor")) {
+                        icon = iconFactory.fromResource(R.mipmap.ic_climb_in);
+                    }
+                    if (inout.equals("outdoor")) {
+                        icon = iconFactory.fromResource(R.mipmap.ic_climb_out);
+                    }
+                } else {
+                    if (inout.equals("indoor/outdoor")) {
+                        icon = iconFactory.fromResource(R.mipmap.ic_bouldern_in_out);
+                    }
+                    if (inout.equals("indoor")) {
+                        icon = iconFactory.fromResource(R.mipmap.ic_bouldern_in);
+                    }
+                    if (inout.equals("outdoor")) {
+                        icon = iconFactory.fromResource(R.mipmap.ic_bouldern_out);
+                    }
                 }
                 return icon;
             default:
