@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bundle.putInt("listTyp", 0);
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction()
-                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+            //        .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
                     .replace(R.id.fragment, toFragment)
                     .addToBackStack("ClimbandBoulderList")
                     .commit();
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bundle.putInt("listTyp", 1);
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction()
-                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+            //        .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
                     .replace(R.id.fragment, toFragment)
                     .addToBackStack("ClimbList")
                     .commit();
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bundle.putInt("listTyp", 2);
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction()
-                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+            //        .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
                     .replace(R.id.fragment, toFragment)
                     .addToBackStack("BoulderList")
                     .commit();
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             toFragment = new FavoritesListFragment();
             fragmentManager.beginTransaction()
-                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+            //        .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
                     .replace(R.id.fragment, toFragment)
                     .addToBackStack("FavoriteListe")
                     .commit();

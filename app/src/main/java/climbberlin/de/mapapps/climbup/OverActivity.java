@@ -17,12 +17,20 @@ public class OverActivity extends AppCompatActivity {
 
         // sets Over text
         setContentView(R.layout.activity_over);
-        TextView over_1 = (TextView) findViewById(R.id.textover_main_1);
-        over_1.setText(Html.fromHtml(getString(R.string.text_over_main_1)));
+        TextView over_1_1 = (TextView) findViewById(R.id.textover_main_1_1);
+        over_1_1.setText(Html.fromHtml(getString(R.string.text_over_main_1_1)));
+        TextView over_1_2 = (TextView) findViewById(R.id.textover_main_1_2);
+        over_1_2.setText(Html.fromHtml(getString(R.string.text_over_main_1_2)));
         TextView contactMail = (TextView) findViewById(R.id.contact_mail);
         contactMail.setText(Html.fromHtml(getString(R.string.text_over_main_contact_mail)));
         TextView over_2 = (TextView) findViewById(R.id.textover_main_2);
         over_2.setText(Html.fromHtml(getString(R.string.text_over_main_2)));
+
+        // sets app version name
+        String versionName = BuildConfig.VERSION_NAME;
+        TextView appVersion = (TextView) findViewById(R.id.textappversion);
+        appVersion.setText(versionName);
+
     }
 
     @Override

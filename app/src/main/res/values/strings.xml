@@ -5,14 +5,18 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- Strings related to appbar menu -->
+    <!-- Strings related to appbar menu & About-Info-->
     <string name="action_settings">Einstellungen</string>
     <string name="action_boulder_map">Boulderkarte</string>
     <string name="action_climb_map">Kletterkarte</string>
     <string name="title_activity_over">Über</string>
     <string name="title_activity_satellite_view">Satellitenansicht</string>
     <string name="add_favorits">zu Favoriten hinzufügen</string>
-    <string name="large_text">"Kontakt und Impressum"</string>
+    <string name="text_app">"Informationen zur App"</string>
+    <string name="appversionlabel">"App Version: "</string>
+    <string name="text_contact">"Kontakt und Impressum"</string>
+    <string name="development">Entwicklung: Hagen Tischer</string>
+    <string name="design">Design: Timo Ott und Hagen Tischer</string>
     <string name="nav_drawer_map">Karte</string>
     <string name="nav_drawer_list_climb_boulder">Kletter- und Boulderspots</string>
     <string name="nav_drawer_list_climb">Kletterpots</string>
@@ -20,26 +24,25 @@
     <string name="nav_drawer_list_favs_spots">Favoritenliste</string>
 
     <!-- Strings related to appinformations -->
-    <string name="text_over_main_1">
+    <string name="text_over_main_1_1">
         <![CDATA[
-        <br/>
 Angaben
-gem&auml;&szlig; &sect; 5 TMG<br/>
-<br/>
-Autor Hagen Tischer
-<br/>
-<br/>
-Kontakt:
-<br/>
+gem&auml;&szlig; &sect; 5 TMG
     ]]></string>
+
+    <string name="text_over_main_1_2">
+        <![CDATA[
+Autor Hagen Tischer
+    ]]></string>
+
     <string name="text_over_main_contact_mail">
         <![CDATA[
-        E-Mail: <i>mapapps@posteo.de</i>
+        E-Mail: <i>mapsapiunwetter@gmail.com</i>
     ]]></string>
 
     <string name="text_over_main_2">
         <![CDATA[
-<br/>
+        <br/>
 <b>Haftung f&uuml;r Inhalte</b><br/>
 <br/>
 Die
