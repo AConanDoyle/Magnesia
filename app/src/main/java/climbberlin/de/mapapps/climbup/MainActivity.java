@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bundle.putInt("listTyp", 0);
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction()
-            //        .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
                     .replace(R.id.fragment, toFragment)
                     .addToBackStack("ClimbandBoulderList")
                     .commit();
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             // Feedback feature
             new EasyFeedback.Builder(this)
-                    .withEmail("mapapps@posteo.de")
+                    .withEmail("mapsapiunwetter@gmail.com")
                     .withSystemInfo()
                     .build()
                     .start();

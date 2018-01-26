@@ -199,7 +199,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    // Deleting table
+    // Deleting db
     public void dropDB() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SPOTS);

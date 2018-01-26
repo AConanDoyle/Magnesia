@@ -264,10 +264,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                         ? "Standardansicht"
                         : "Satellitenansicht");
 
-    //    MenuItem itemZoomtoExtention = menu.add(Menu.NONE, item_zoomtobb , Menu.NONE,"Zoom ");
+        //    MenuItem itemZoomtoExtention = menu.add(Menu.NONE, item_zoomtobb , Menu.NONE,"Zoom ");
 
         itemSatelliteMap.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-    //    itemZoomtoExtention.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        //    itemZoomtoExtention.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         itemMapTyp.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         getActivity().getMenuInflater().inflate(R.menu.menu_appbar, menu);
@@ -402,7 +402,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                     if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     } else {
-                        showSettingsLocationDialog();
+                        showSettingsLocationDialog(false);
                         locationManager.requestLocationUpdates("gps", 500, 0, locationListener);
                         myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     }
@@ -440,7 +440,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                     getActivity().setTitle("Boulderspots");
                 }
 
-                // Holds CameraPosition while MapFlip (change between Boulder and Climbing Map)
+                // holds CameraPosition while MapFlip (change between Boulder and Climbing Map)
                 if (fromMapFlip) {
                     // default location for map (Berlin Alexanderplatz)
                     LatLng mapPosition = mapboxMap.getCameraPosition().target;
@@ -523,6 +523,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                 locationButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                                !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                            showSettingsLocationDialog(true);
+                        }
                         locationListener.onLocationChanged(myLocation);
                         if (myLocation != null) {
                             CameraPosition position = new CameraPosition.Builder()
@@ -531,6 +535,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                                     .build();
                             mapboxMap.animateCamera(CameraUpdateFactory
                                     .newCameraPosition(position), 5000);
+
                         }
                     }
                 });
@@ -579,9 +584,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
     }
 
     // Asks user for location service
-    public void showSettingsLocationDialog() {
+    public void showSettingsLocationDialog(boolean fromlocationButton) {
         // Fires a Dialog for Location service
-        if (isFirstRunLocationDialoge) {
+        if (isFirstRunLocationDialoge || fromlocationButton) {
             alertDialog = new AlertDialog.Builder(getActivity());
 
             // setting dialog title message
