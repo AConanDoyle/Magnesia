@@ -16,10 +16,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,8 +26,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -94,7 +95,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
     // Floating Action Buttons & Menus
     FloatingActionMenu FAM_InOut;
     FloatingActionButton fabIN, fabOut, fabInOut;
-    android.support.design.widget.FloatingActionButton locationButton;
+    com.google.android.material.floatingactionbutton.FloatingActionButton locationButton;
 
     // Filters for Map
     Boolean showclimb, showSatellite_streets;
@@ -202,19 +203,19 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
         // view for the map and mapbox-token
         Mapbox.getInstance(getActivity(), getString(R.string.accessToken));
         view = inflater.inflate(R.layout.fragment_map, container, false);
-        mapView = (MapView) view.findViewById(R.id.mapviewmapbox);
+        mapView = view.findViewById(R.id.mapviewmapbox);
 
         // FA-Menu & Buttons + the preference settings from user
-        FAM_InOut = (FloatingActionMenu) view.findViewById(R.id.floating_action_menu_inout);
-        fabIN = (FloatingActionButton) view.findViewById(R.id.floating_action_menu_In);
+        FAM_InOut = view.findViewById(R.id.floating_action_menu_inout);
+        fabIN = view.findViewById(R.id.floating_action_menu_In);
         fabIN.setLabelVisibility((filter_labels) ? 1 : 0);
-        fabOut = (FloatingActionButton) view.findViewById(R.id.floating_action_menu_Out);
+        fabOut = view.findViewById(R.id.floating_action_menu_Out);
         fabOut.setLabelVisibility((filter_labels) ? 1 : 0);
-        fabInOut = (FloatingActionButton) view.findViewById(R.id.floating_action_menu_InandOut);
+        fabInOut = view.findViewById(R.id.floating_action_menu_InandOut);
         fabInOut.setLabelVisibility((filter_labels) ? 1 : 0);
 
         // more map stuff
-        locationButton = (android.support.design.widget.FloatingActionButton) view.findViewById(R.id.location_toggle_fab);
+        locationButton = view.findViewById(R.id.location_toggle_fab);
         mapView.onCreate(savedInstanceState);
         onMapReady(mapboxMap);
 
@@ -298,7 +299,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
                                 !showclimb ? "Boulderspots" : "Kletterspots", Snackbar.LENGTH_LONG);
                 View snackbarView = snackbar.getView();
                 snackbarView.setBackgroundColor(!showclimb ? Color.BLACK : Color.WHITE);
-                TextView textViewsnakebar = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                TextView textViewsnakebar = snackbarView.findViewById(R.id.snackbar_text);
                 textViewsnakebar.setTextColor(!showclimb ? Color.WHITE : Color.BLACK);
                 snackbar.show();
                 fromMapFlip = true;
@@ -417,7 +418,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, MapboxM
 
                 // clears map
                 mapboxMap.clear();
-                mapboxMap.setMyLocationEnabled(true);
+                // mapboxMap.setMyLocationEnabled(true);
                 mapboxMap.setOnInfoWindowClickListener(MapFragment.this);
 
                 // sets the base map

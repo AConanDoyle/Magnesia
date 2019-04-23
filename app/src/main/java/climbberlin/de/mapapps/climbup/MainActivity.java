@@ -6,17 +6,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 import com.webianks.easy_feedback.EasyFeedback;
 
 import climbberlin.de.mapapps.climbup.Fragments.FavoritesListFragment;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         // sets toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // creates initial fragment
@@ -65,19 +66,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         getFragmentManager().addOnBackStackChangedListener(this);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bundle.putInt("listTyp", 0);
             toFragment.setArguments(bundle);
             fragmentManager.beginTransaction()
-                    .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
+            //        .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_out_right, 0, 0)
                     .replace(R.id.fragment, toFragment)
                     .addToBackStack("ClimbandBoulderList")
                     .commit();
@@ -162,13 +163,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             // Feedback feature
             new EasyFeedback.Builder(this)
-                    .withEmail("mapsapiunwetter@gmail.com")
-                    .withSystemInfo()
+                    .withEmail("info@magnesia-berlin.de")
                     .build()
                     .start();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // method for listview
     public void callWebAdress(View view) {
 
-        TextView textviewwebadress = (TextView) view.findViewById(R.id.textViewWebadress);
+        TextView textviewwebadress = view.findViewById(R.id.textViewWebadress);
         String url = textviewwebadress.getText().toString();
 
         if (!url.equals("n.v.")) {
