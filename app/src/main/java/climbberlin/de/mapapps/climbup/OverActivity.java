@@ -3,11 +3,12 @@ package climbberlin.de.mapapps.climbup;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class OverActivity extends AppCompatActivity {
 
@@ -17,18 +18,18 @@ public class OverActivity extends AppCompatActivity {
 
         // sets Over text
         setContentView(R.layout.activity_over);
-        TextView over_1_1 = (TextView) findViewById(R.id.textover_main_1_1);
+        TextView over_1_1 = findViewById(R.id.textover_main_1_1);
         over_1_1.setText(Html.fromHtml(getString(R.string.text_over_main_1_1)));
-        TextView over_1_2 = (TextView) findViewById(R.id.textover_main_1_2);
+        TextView over_1_2 = findViewById(R.id.textover_main_1_2);
         over_1_2.setText(Html.fromHtml(getString(R.string.text_over_main_1_2)));
-        TextView contactMail = (TextView) findViewById(R.id.contact_mail);
+        TextView contactMail = findViewById(R.id.contact_mail);
         contactMail.setText(Html.fromHtml(getString(R.string.text_over_main_contact_mail)));
-        TextView over_2 = (TextView) findViewById(R.id.textover_main_2);
+        TextView over_2 = findViewById(R.id.textover_main_2);
         over_2.setText(Html.fromHtml(getString(R.string.text_over_main_2)));
 
         // sets app version name
         String versionName = BuildConfig.VERSION_NAME;
-        TextView appVersion = (TextView) findViewById(R.id.textappversion);
+        TextView appVersion = findViewById(R.id.textappversion);
         appVersion.setText(versionName);
 
     }

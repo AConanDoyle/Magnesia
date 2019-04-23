@@ -18,7 +18,7 @@
         mapbox:mapbox_cameraZoom="15"
         mapbox:mapbox_styleUrl="mapbox://styles/mapbox/dark-v9">
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/location_toggle_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
 
     </com.mapbox.mapboxsdk.maps.MapView>
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/CoordiLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,6 +100,6 @@
 
         </com.github.clans.fab.FloatingActionMenu>
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </FrameLayout>

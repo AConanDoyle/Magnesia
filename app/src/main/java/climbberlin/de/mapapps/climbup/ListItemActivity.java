@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerViewOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -68,16 +69,16 @@ public class ListItemActivity extends AppCompatActivity {
 
         db = new DBHandler(getBaseContext());
 
-        textViewTitle = (TextView) findViewById(R.id.textViewTitels);
-        textViewtTyp = (TextView) findViewById(R.id.textViewType);
-        textViewKrouten = (TextView) findViewById(R.id.textViewKRouten);
-        textViewBrouten = (TextView) findViewById(R.id.textViewBRouten);
-        textViewInOut = (TextView) findViewById(R.id.textViewInOUT);
-        textViewMaterial = (TextView) findViewById(R.id.textViewMaterial);
-        textViewOpening = (TextView) findViewById(R.id.textViewopening);
-        textViewPrice = (TextView) findViewById(R.id.textViewPrice);
-        textViewAdress = (TextView) findViewById(R.id.textViewAdress);
-        textViewWeb = (TextView) findViewById(R.id.textViewWebadress);
+        textViewTitle = findViewById(R.id.textViewTitels);
+        textViewtTyp = findViewById(R.id.textViewType);
+        textViewKrouten = findViewById(R.id.textViewKRouten);
+        textViewBrouten = findViewById(R.id.textViewBRouten);
+        textViewInOut = findViewById(R.id.textViewInOUT);
+        textViewMaterial = findViewById(R.id.textViewMaterial);
+        textViewOpening = findViewById(R.id.textViewopening);
+        textViewPrice = findViewById(R.id.textViewPrice);
+        textViewAdress = findViewById(R.id.textViewAdress);
+        textViewWeb = findViewById(R.id.textViewWebadress);
 
         Intent intentbundleData = getIntent();
         if (intentbundleData != null) {
@@ -208,8 +209,8 @@ public class ListItemActivity extends AppCompatActivity {
             }
         });
 
-        final ScrollView mainScrollView = (ScrollView) findViewById(R.id.list_item);
-        ImageView transparentImageView = (ImageView) findViewById(R.id.transparent_image);
+        final ScrollView mainScrollView = findViewById(R.id.list_item);
+        ImageView transparentImageView = findViewById(R.id.transparent_image);
 
         // little workaround for scrollview / map problem
         // listener gets active, when user scrolls down or up on map
@@ -339,7 +340,7 @@ public class ListItemActivity extends AppCompatActivity {
 
     public void callWebAdress(View v) {
 
-        TextView textviewwebadress = (TextView) v.findViewById(R.id.textViewWebadress);
+        TextView textviewwebadress = v.findViewById(R.id.textViewWebadress);
         String url = textviewwebadress.getText().toString();
 
         if (!url.equals("n.v.")) {
@@ -356,7 +357,7 @@ public class ListItemActivity extends AppCompatActivity {
                 .make(findViewById(R.id.activity_list_item),
                         spotAdded ? getText(R.string.spot_added) : getText(R.string.spot_deleted),
                         Snackbar.LENGTH_LONG);
-                snackbar.show();
+        snackbar.show();
     }
 
     // lifecycle methods

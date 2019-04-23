@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.Window;
+
+import androidx.annotation.RequiresApi;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -29,7 +30,7 @@ public class SplashscreenActivity extends Activity {
 
         // set up startanimation
         // To-do: implement animation listener
-        animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+        animationView = findViewById(R.id.animation_view);
         animationView.setAnimation("startanimation.json");
         animationView.setImageAssetsFolder("images/");
         animationView.loop(false);
